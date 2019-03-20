@@ -30,9 +30,7 @@ public abstract class SaksmappeResource extends Mappe implements FintAbstractObj
     private String saksaar;
     @NonNull
     private Date saksdato;
-    @NonNull
     private String sakssekvensnummer;
-    @NonNull
     private Date utlaantDato;
 
     // Relations

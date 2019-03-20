@@ -11,6 +11,7 @@ import java.util.List;
 import no.fint.model.FintMainObject;
 import no.fint.model.felles.kompleksedatatyper.Adresse;
 import no.fint.model.felles.kompleksedatatyper.Kontaktinformasjon;
+import no.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Data
 @NoArgsConstructor
@@ -24,9 +25,8 @@ public class Sakspart implements FintMainObject {
 
     private Adresse adresse;
     private Kontaktinformasjon kontaktinformasjon;
-    @NonNull
     private String kontaktperson;
-    private String sakspartId;
+    private Identifikator sakspartId;
     @NonNull
     private String sakspartNavn;
 }

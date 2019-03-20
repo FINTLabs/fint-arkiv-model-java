@@ -18,6 +18,7 @@ import java.util.Map;
 import no.fint.model.FintMainObject;
 import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
+import no.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Data
 @NoArgsConstructor
@@ -25,18 +26,13 @@ import no.fint.model.resource.Link;
 @ToString
 public class DokumentobjektResource implements FintMainObject, FintLinks {
     // Attributes
-    @NonNull
     private String filstorrelse;
-    @NonNull
     private String format;
     private String formatDetaljer;
-    @NonNull
     private String referanseDokumentfil;
-    @NonNull
     private String sjekksum;
-    @NonNull
     private String sjekksumAlgoritme;
-    @NonNull
+    private Identifikator systemId;
     private Long versjonsummer;
 
     // Relations
@@ -44,18 +40,18 @@ public class DokumentobjektResource implements FintMainObject, FintLinks {
     private final Map<String, List<Link>> links = createLinks();
         
     @JsonIgnore
-    public List<Link> getVariantFormat() {
-        return getLinks().getOrDefault("variantFormat", Collections.emptyList()); 
-    }
-    public void addVariantFormat(Link link) {
-        addLink("variantFormat", link);
-    }
-    @JsonIgnore
     public List<Link> getOpprettetAv() {
         return getLinks().getOrDefault("opprettetAv", Collections.emptyList()); 
     }
     public void addOpprettetAv(Link link) {
         addLink("opprettetAv", link);
+    }
+    @JsonIgnore
+    public List<Link> getVariantFormat() {
+        return getLinks().getOrDefault("variantFormat", Collections.emptyList()); 
+    }
+    public void addVariantFormat(Link link) {
+        addLink("variantFormat", link);
     }
     @JsonIgnore
     public List<Link> getDokumentbeskrivelse() {

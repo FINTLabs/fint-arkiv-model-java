@@ -17,17 +17,13 @@ import no.fint.model.felles.kompleksedatatyper.Identifikator;
 @EqualsAndHashCode
 @ToString
 public abstract class Mappe implements FintAbstractObject {
-    @NonNull
     private Date avsluttetDato;
     private String beskrivelse;
-    @NonNull
     private Identifikator mappeId;
     @NonNull
     private List<String> noekkelord;
     private String offentligTittel;
-    @NonNull
     private Date opprettetDato;
-    @NonNull
     private Identifikator systemId;
     @NonNull
     private String tittel;

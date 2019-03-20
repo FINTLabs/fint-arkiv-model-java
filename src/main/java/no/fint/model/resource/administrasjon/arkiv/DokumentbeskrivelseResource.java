@@ -18,6 +18,7 @@ import java.util.Map;
 import no.fint.model.FintMainObject;
 import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
+import java.util.Date;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Data
@@ -27,18 +28,14 @@ import no.fint.model.felles.kompleksedatatyper.Identifikator;
 public class DokumentbeskrivelseResource implements FintMainObject, FintLinks {
     // Attributes
     private String beskrivelse;
-    @NonNull
     private Long dokumentnummer;
     @NonNull
     private List<String> forfatter;
-    @NonNull
-    private java.util.Date opprettetDato;
+    private Date opprettetDato;
     @NonNull
     private List<String> referanseArkivdel;
-    @NonNull
     private Identifikator systemId;
-    @NonNull
-    private java.util.Date tilknyttetDato;
+    private Date tilknyttetDato;
     @NonNull
     private String tittel;
 
@@ -46,20 +43,6 @@ public class DokumentbeskrivelseResource implements FintMainObject, FintLinks {
     @Getter
     private final Map<String, List<Link>> links = createLinks();
         
-    @JsonIgnore
-    public List<Link> getDokumentstatus() {
-        return getLinks().getOrDefault("dokumentstatus", Collections.emptyList()); 
-    }
-    public void addDokumentstatus(Link link) {
-        addLink("dokumentstatus", link);
-    }
-    @JsonIgnore
-    public List<Link> getDokumentType() {
-        return getLinks().getOrDefault("dokumentType", Collections.emptyList()); 
-    }
-    public void addDokumentType(Link link) {
-        addLink("dokumentType", link);
-    }
     @JsonIgnore
     public List<Link> getTilknyttetAv() {
         return getLinks().getOrDefault("tilknyttetAv", Collections.emptyList()); 
@@ -73,6 +56,20 @@ public class DokumentbeskrivelseResource implements FintMainObject, FintLinks {
     }
     public void addOpprettetAv(Link link) {
         addLink("opprettetAv", link);
+    }
+    @JsonIgnore
+    public List<Link> getDokumentstatus() {
+        return getLinks().getOrDefault("dokumentstatus", Collections.emptyList()); 
+    }
+    public void addDokumentstatus(Link link) {
+        addLink("dokumentstatus", link);
+    }
+    @JsonIgnore
+    public List<Link> getDokumentType() {
+        return getLinks().getOrDefault("dokumentType", Collections.emptyList()); 
+    }
+    public void addDokumentType(Link link) {
+        addLink("dokumentType", link);
     }
     @JsonIgnore
     public List<Link> getDokumentobjekt() {

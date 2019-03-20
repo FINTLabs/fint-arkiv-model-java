@@ -27,17 +27,13 @@ import no.fint.model.felles.kompleksedatatyper.Identifikator;
 @ToString
 public abstract class MappeResource implements FintAbstractObject, FintLinks {
     // Attributes
-    @NonNull
     private Date avsluttetDato;
     private String beskrivelse;
-    @NonNull
     private Identifikator mappeId;
     @NonNull
     private List<String> noekkelord;
     private String offentligTittel;
-    @NonNull
     private Date opprettetDato;
-    @NonNull
     private Identifikator systemId;
     @NonNull
     private String tittel;

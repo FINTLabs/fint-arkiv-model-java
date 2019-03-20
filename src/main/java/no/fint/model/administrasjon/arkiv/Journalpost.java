@@ -9,6 +9,7 @@ import lombok.ToString;
 import lombok.NonNull;
 import java.util.List;
 import no.fint.model.FintMainObject;
+import java.util.Date;
 import no.fint.model.administrasjon.arkiv.Registrering;
 
 @Data
@@ -17,25 +18,24 @@ import no.fint.model.administrasjon.arkiv.Registrering;
 @ToString(callSuper=true)
 public class Journalpost extends Registrering implements FintMainObject {
     public enum Relasjonsnavn {
+            JOURNALENHET,
             DOKUMENTBESKRIVELSE,
             JOURNALSTATUS,
-            JOURNALENHET,
             JOURNALPOSTTYPE,
-            MAPPE,
             ARKIVERTAV,
             OPPRETTETAV,
+            MAPPE,
             KORRESPONDANSEPART
     }
 
     private Long antallVedlegg;
-    private java.util.Date dokumentetsDato;
-    private java.util.Date forfallsDato;
+    private Date dokumentetsDato;
+    private Date forfallsDato;
     private String journalAr;
-    @NonNull
-    private java.util.Date journalDato;
+    private Date journalDato;
     private Long journalPostnummer;
     private Long journalSekvensnummer;
-    private java.util.Date mottattDato;
-    private java.util.Date offentlighetsvurdertDato;
-    private java.util.Date sendtDato;
+    private Date mottattDato;
+    private Date offentlighetsvurdertDato;
+    private Date sendtDato;
 }

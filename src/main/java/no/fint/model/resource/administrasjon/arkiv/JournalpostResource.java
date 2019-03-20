@@ -18,6 +18,7 @@ import java.util.Map;
 import no.fint.model.FintMainObject;
 import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
+import java.util.Date;
 import no.fint.model.administrasjon.arkiv.Registrering;
 
 @Data
@@ -27,21 +28,27 @@ import no.fint.model.administrasjon.arkiv.Registrering;
 public class JournalpostResource extends Registrering implements FintMainObject, FintLinks {
     // Attributes
     private Long antallVedlegg;
-    private java.util.Date dokumentetsDato;
-    private java.util.Date forfallsDato;
+    private Date dokumentetsDato;
+    private Date forfallsDato;
     private String journalAr;
-    @NonNull
-    private java.util.Date journalDato;
+    private Date journalDato;
     private Long journalPostnummer;
     private Long journalSekvensnummer;
-    private java.util.Date mottattDato;
-    private java.util.Date offentlighetsvurdertDato;
-    private java.util.Date sendtDato;
+    private Date mottattDato;
+    private Date offentlighetsvurdertDato;
+    private Date sendtDato;
 
     // Relations
     @Getter
     private final Map<String, List<Link>> links = createLinks();
         
+    @JsonIgnore
+    public List<Link> getJournalEnhet() {
+        return getLinks().getOrDefault("journalEnhet", Collections.emptyList()); 
+    }
+    public void addJournalEnhet(Link link) {
+        addLink("journalEnhet", link);
+    }
     @JsonIgnore
     public List<Link> getDokumentbeskrivelse() {
         return getLinks().getOrDefault("dokumentbeskrivelse", Collections.emptyList()); 
@@ -57,25 +64,11 @@ public class JournalpostResource extends Registrering implements FintMainObject,
         addLink("journalStatus", link);
     }
     @JsonIgnore
-    public List<Link> getJournalEnhet() {
-        return getLinks().getOrDefault("journalEnhet", Collections.emptyList()); 
-    }
-    public void addJournalEnhet(Link link) {
-        addLink("journalEnhet", link);
-    }
-    @JsonIgnore
     public List<Link> getJournalPostType() {
         return getLinks().getOrDefault("journalPostType", Collections.emptyList()); 
     }
     public void addJournalPostType(Link link) {
         addLink("journalPostType", link);
-    }
-    @JsonIgnore
-    public List<Link> getMappe() {
-        return getLinks().getOrDefault("mappe", Collections.emptyList()); 
-    }
-    public void addMappe(Link link) {
-        addLink("mappe", link);
     }
     @JsonIgnore
     public List<Link> getArkivertAv() {
@@ -90,6 +83,13 @@ public class JournalpostResource extends Registrering implements FintMainObject,
     }
     public void addOpprettetAv(Link link) {
         addLink("opprettetAv", link);
+    }
+    @JsonIgnore
+    public List<Link> getMappe() {
+        return getLinks().getOrDefault("mappe", Collections.emptyList()); 
+    }
+    public void addMappe(Link link) {
+        addLink("mappe", link);
     }
     @JsonIgnore
     public List<Link> getKorrespondansepart() {

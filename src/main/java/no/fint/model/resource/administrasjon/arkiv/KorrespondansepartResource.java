@@ -39,13 +39,19 @@ public class KorrespondansepartResource implements FintMainObject, FintLinks {
     private AdresseResource adresse;
     private Kontaktinformasjon kontaktinformasjon;
     private String kontaktperson;
-    @NonNull
     private String korrespondansepartNavn;
 
     // Relations
     @Getter
     private final Map<String, List<Link>> links = createLinks();
         
+    @JsonIgnore
+    public List<Link> getAdministrativEnhet() {
+        return getLinks().getOrDefault("administrativEnhet", Collections.emptyList()); 
+    }
+    public void addAdministrativEnhet(Link link) {
+        addLink("administrativEnhet", link);
+    }
     @JsonIgnore
     public List<Link> getSaksbehandler() {
         return getLinks().getOrDefault("saksbehandler", Collections.emptyList()); 
@@ -66,12 +72,5 @@ public class KorrespondansepartResource implements FintMainObject, FintLinks {
     }
     public void addRegistrering(Link link) {
         addLink("registrering", link);
-    }
-    @JsonIgnore
-    public List<Link> getAdministrativEnhet() {
-        return getLinks().getOrDefault("administrativEnhet", Collections.emptyList()); 
-    }
-    public void addAdministrativEnhet(Link link) {
-        addLink("administrativEnhet", link);
     }
 }

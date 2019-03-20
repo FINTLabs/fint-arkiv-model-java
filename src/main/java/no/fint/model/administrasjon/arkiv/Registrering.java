@@ -17,7 +17,6 @@ import no.fint.model.felles.kompleksedatatyper.Identifikator;
 @EqualsAndHashCode
 @ToString
 public abstract class Registrering implements FintAbstractObject {
-    @NonNull
     private Date arkivertDato;
     private String beskrivelse;
     @NonNull
@@ -25,13 +24,10 @@ public abstract class Registrering implements FintAbstractObject {
     @NonNull
     private List<String> nokkelord;
     private String offentligTittel;
-    @NonNull
     private Date opprettetDato;
     @NonNull
     private List<String> referanseArkivDel;
-    @NonNull
     private String registreringsId;
-    @NonNull
     private Identifikator systemId;
     @NonNull
     private String tittel;

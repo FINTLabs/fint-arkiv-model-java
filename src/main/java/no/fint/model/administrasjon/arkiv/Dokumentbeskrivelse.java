@@ -9,6 +9,7 @@ import lombok.ToString;
 import lombok.NonNull;
 import java.util.List;
 import no.fint.model.FintMainObject;
+import java.util.Date;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Data
@@ -17,28 +18,24 @@ import no.fint.model.felles.kompleksedatatyper.Identifikator;
 @ToString
 public class Dokumentbeskrivelse implements FintMainObject {
     public enum Relasjonsnavn {
-            DOKUMENTSTATUS,
-            DOKUMENTTYPE,
             TILKNYTTETAV,
             OPPRETTETAV,
+            DOKUMENTSTATUS,
+            DOKUMENTTYPE,
             DOKUMENTOBJEKT,
             TILKNYTTETREGISTRERINGSOM,
             JOURNALPOST
     }
 
     private String beskrivelse;
-    @NonNull
     private Long dokumentnummer;
     @NonNull
     private List<String> forfatter;
-    @NonNull
-    private java.util.Date opprettetDato;
+    private Date opprettetDato;
     @NonNull
     private List<String> referanseArkivdel;
-    @NonNull
     private Identifikator systemId;
-    @NonNull
-    private java.util.Date tilknyttetDato;
+    private Date tilknyttetDato;
     @NonNull
     private String tittel;
 }

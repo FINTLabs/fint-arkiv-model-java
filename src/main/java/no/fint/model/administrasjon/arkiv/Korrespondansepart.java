@@ -18,15 +18,14 @@ import no.fint.model.felles.kompleksedatatyper.Kontaktinformasjon;
 @ToString
 public class Korrespondansepart implements FintMainObject {
     public enum Relasjonsnavn {
+            ADMINISTRATIVENHET,
             SAKSBEHANDLER,
             KORRESPONDANSEPARTTYPE,
-            REGISTRERING,
-            ADMINISTRATIVENHET
+            REGISTRERING
     }
 
     private Adresse adresse;
     private Kontaktinformasjon kontaktinformasjon;
     private String kontaktperson;
-    @NonNull
     private String korrespondansepartNavn;
 }

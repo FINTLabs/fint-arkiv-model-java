@@ -20,8 +20,6 @@ public abstract class Saksmappe extends Mappe implements FintAbstractObject {
     private String saksaar;
     @NonNull
     private Date saksdato;
-    @NonNull
     private String sakssekvensnummer;
-    @NonNull
     private Date utlaantDato;
 }
