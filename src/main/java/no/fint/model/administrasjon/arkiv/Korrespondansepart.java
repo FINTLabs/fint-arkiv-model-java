@@ -11,6 +11,7 @@ import java.util.List;
 import no.fint.model.FintMainObject;
 import no.fint.model.felles.kompleksedatatyper.Adresse;
 import no.fint.model.felles.kompleksedatatyper.Kontaktinformasjon;
+import no.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Data
 @NoArgsConstructor
@@ -28,4 +29,5 @@ public class Korrespondansepart implements FintMainObject {
     private Kontaktinformasjon kontaktinformasjon;
     private String kontaktperson;
     private String korrespondansepartNavn;
+    private Identifikator systemId;
 }

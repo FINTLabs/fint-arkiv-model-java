@@ -18,7 +18,6 @@ import no.fint.model.administrasjon.arkiv.Mappe;
 @ToString(callSuper=true)
 public abstract class Saksmappe extends Mappe implements FintAbstractObject {
     private String saksaar;
-    @NonNull
     private Date saksdato;
     private String sakssekvensnummer;
     private Date utlaantDato;

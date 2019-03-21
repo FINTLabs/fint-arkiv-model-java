@@ -20,6 +20,7 @@ import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
 import no.fint.model.resource.felles.kompleksedatatyper.AdresseResource;
 import no.fint.model.felles.kompleksedatatyper.Kontaktinformasjon;
+import no.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Data
 @NoArgsConstructor
@@ -40,6 +41,7 @@ public class KorrespondansepartResource implements FintMainObject, FintLinks {
     private Kontaktinformasjon kontaktinformasjon;
     private String kontaktperson;
     private String korrespondansepartNavn;
+    private Identifikator systemId;
 
     // Relations
     @Getter
