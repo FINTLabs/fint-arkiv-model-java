@@ -68,11 +68,4 @@ public class KorrespondansepartResource implements FintMainObject, FintLinks {
     public void addKorrespondanseparttype(Link link) {
         addLink("korrespondanseparttype", link);
     }
-    @JsonIgnore
-    public List<Link> getRegistrering() {
-        return getLinks().getOrDefault("registrering", Collections.emptyList()); 
-    }
-    public void addRegistrering(Link link) {
-        addLink("registrering", link);
-    }
 }

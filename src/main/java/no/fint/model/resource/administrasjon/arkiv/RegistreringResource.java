@@ -19,7 +19,7 @@ import no.fint.model.FintAbstractObject;
 import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
 import java.util.Date;
-import no.fint.model.felles.kompleksedatatyper.Identifikator;
+import no.fint.model.resource.administrasjon.arkiv.DokumentbeskrivelseResource;
 
 @Data
 @NoArgsConstructor
@@ -27,8 +27,19 @@ import no.fint.model.felles.kompleksedatatyper.Identifikator;
 @ToString
 public abstract class RegistreringResource implements FintAbstractObject, FintLinks {
     // Attributes
+    @JsonIgnore
+    @Override
+    public List<FintLinks> getNestedResources() {
+        List<FintLinks> result = FintLinks.super.getNestedResources();
+        if (dokumentbeskrivelse != null) {
+            result.addAll(dokumentbeskrivelse);
+        }
+        return result;
+    }
     private Date arkivertDato;
     private String beskrivelse;
+    @NonNull
+    private List<DokumentbeskrivelseResource> dokumentbeskrivelse;
     @NonNull
     private List<String> forfatter;
     @NonNull
@@ -38,7 +49,6 @@ public abstract class RegistreringResource implements FintAbstractObject, FintLi
     @NonNull
     private List<String> referanseArkivDel;
     private String registreringsId;
-    private Identifikator systemId;
     @NonNull
     private String tittel;
 

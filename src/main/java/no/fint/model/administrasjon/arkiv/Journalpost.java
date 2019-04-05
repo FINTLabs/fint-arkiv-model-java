@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import lombok.NonNull;
 import java.util.List;
-import no.fint.model.FintMainObject;
+import no.fint.model.FintComplexDatatypeObject;
 import java.util.Date;
 import no.fint.model.administrasjon.arkiv.Registrering;
 
@@ -16,15 +16,13 @@ import no.fint.model.administrasjon.arkiv.Registrering;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper=true)
 @ToString(callSuper=true)
-public class Journalpost extends Registrering implements FintMainObject {
+public class Journalpost extends Registrering implements FintComplexDatatypeObject {
     public enum Relasjonsnavn {
             JOURNALENHET,
-            DOKUMENTBESKRIVELSE,
             JOURNALSTATUS,
             JOURNALPOSTTYPE,
             ARKIVERTAV,
             OPPRETTETAV,
-            MAPPE,
             KORRESPONDANSEPART
     }
 

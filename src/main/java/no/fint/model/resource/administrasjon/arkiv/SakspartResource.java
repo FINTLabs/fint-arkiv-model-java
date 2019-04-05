@@ -49,13 +49,6 @@ public class SakspartResource implements FintMainObject, FintLinks {
     private final Map<String, List<Link>> links = createLinks();
         
     @JsonIgnore
-    public List<Link> getSaksmappe() {
-        return getLinks().getOrDefault("saksmappe", Collections.emptyList()); 
-    }
-    public void addSaksmappe(Link link) {
-        addLink("saksmappe", link);
-    }
-    @JsonIgnore
     public List<Link> getSakspartRolle() {
         return getLinks().getOrDefault("sakspartRolle", Collections.emptyList()); 
     }

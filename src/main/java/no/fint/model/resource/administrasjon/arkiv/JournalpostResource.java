@@ -15,17 +15,17 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import no.fint.model.FintMainObject;
+import no.fint.model.FintComplexDatatypeObject;
 import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
 import java.util.Date;
-import no.fint.model.administrasjon.arkiv.Registrering;
+import no.fint.model.resource.administrasjon.arkiv.RegistreringResource;
 
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper=true)
 @ToString(callSuper=true)
-public class JournalpostResource extends Registrering implements FintMainObject, FintLinks {
+public class JournalpostResource extends RegistreringResource implements FintComplexDatatypeObject, FintLinks {
     // Attributes
     private Long antallVedlegg;
     private Date dokumentetsDato;
@@ -48,13 +48,6 @@ public class JournalpostResource extends Registrering implements FintMainObject,
     }
     public void addJournalEnhet(Link link) {
         addLink("journalEnhet", link);
-    }
-    @JsonIgnore
-    public List<Link> getDokumentbeskrivelse() {
-        return getLinks().getOrDefault("dokumentbeskrivelse", Collections.emptyList()); 
-    }
-    public void addDokumentbeskrivelse(Link link) {
-        addLink("dokumentbeskrivelse", link);
     }
     @JsonIgnore
     public List<Link> getJournalStatus() {
@@ -83,13 +76,6 @@ public class JournalpostResource extends Registrering implements FintMainObject,
     }
     public void addOpprettetAv(Link link) {
         addLink("opprettetAv", link);
-    }
-    @JsonIgnore
-    public List<Link> getMappe() {
-        return getLinks().getOrDefault("mappe", Collections.emptyList()); 
-    }
-    public void addMappe(Link link) {
-        addLink("mappe", link);
     }
     @JsonIgnore
     public List<Link> getKorrespondansepart() {

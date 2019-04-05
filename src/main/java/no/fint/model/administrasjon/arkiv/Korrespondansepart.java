@@ -21,8 +21,7 @@ public class Korrespondansepart implements FintMainObject {
     public enum Relasjonsnavn {
             ADMINISTRATIVENHET,
             SAKSBEHANDLER,
-            KORRESPONDANSEPARTTYPE,
-            REGISTRERING
+            KORRESPONDANSEPARTTYPE
     }
 
     private Adresse adresse;

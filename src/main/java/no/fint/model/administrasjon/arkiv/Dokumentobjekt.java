@@ -8,18 +8,16 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import lombok.NonNull;
 import java.util.List;
-import no.fint.model.FintMainObject;
-import no.fint.model.felles.kompleksedatatyper.Identifikator;
+import no.fint.model.FintComplexDatatypeObject;
 
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class Dokumentobjekt implements FintMainObject {
+public class Dokumentobjekt implements FintComplexDatatypeObject {
     public enum Relasjonsnavn {
             OPPRETTETAV,
-            VARIANTFORMAT,
-            DOKUMENTBESKRIVELSE
+            VARIANTFORMAT
     }
 
     private String filstorrelse;
@@ -28,6 +26,5 @@ public class Dokumentobjekt implements FintMainObject {
     private String referanseDokumentfil;
     private String sjekksum;
     private String sjekksumAlgoritme;
-    private Identifikator systemId;
     private Long versjonsummer;
 }

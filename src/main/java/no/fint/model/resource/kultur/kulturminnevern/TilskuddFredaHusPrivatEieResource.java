@@ -20,18 +20,18 @@ import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
 import no.fint.model.resource.felles.kompleksedatatyper.MatrikkelnummerResource;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
-import no.fint.model.administrasjon.arkiv.Saksmappe;
+import no.fint.model.resource.administrasjon.arkiv.SaksmappeResource;
 
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper=true)
 @ToString(callSuper=true)
-public class TilskuddFredaHusPrivatEieResource extends Saksmappe implements FintMainObject, FintLinks {
+public class TilskuddFredaHusPrivatEieResource extends SaksmappeResource implements FintMainObject, FintLinks {
     // Attributes
     @JsonIgnore
     @Override
     public List<FintLinks> getNestedResources() {
-        List<FintLinks> result = FintLinks.super.getNestedResources();
+        List<FintLinks> result = super.getNestedResources();
         if (matrikkelnummer != null) {
             result.add(matrikkelnummer);
         }
@@ -56,11 +56,11 @@ public class TilskuddFredaHusPrivatEieResource extends Saksmappe implements Fint
         addLink("journalenhet", link);
     }
     @JsonIgnore
-    public List<Link> getSaksstatus() {
-        return getLinks().getOrDefault("saksstatus", Collections.emptyList()); 
+    public List<Link> getAdministrativEnhet() {
+        return getLinks().getOrDefault("administrativEnhet", Collections.emptyList()); 
     }
-    public void addSaksstatus(Link link) {
-        addLink("saksstatus", link);
+    public void addAdministrativEnhet(Link link) {
+        addLink("administrativEnhet", link);
     }
     @JsonIgnore
     public List<Link> getSaksansvarlig() {
@@ -70,18 +70,18 @@ public class TilskuddFredaHusPrivatEieResource extends Saksmappe implements Fint
         addLink("saksansvarlig", link);
     }
     @JsonIgnore
-    public List<Link> getAdministrativEnhet() {
-        return getLinks().getOrDefault("administrativEnhet", Collections.emptyList()); 
-    }
-    public void addAdministrativEnhet(Link link) {
-        addLink("administrativEnhet", link);
-    }
-    @JsonIgnore
     public List<Link> getSakspart() {
         return getLinks().getOrDefault("sakspart", Collections.emptyList()); 
     }
     public void addSakspart(Link link) {
         addLink("sakspart", link);
+    }
+    @JsonIgnore
+    public List<Link> getSaksstatus() {
+        return getLinks().getOrDefault("saksstatus", Collections.emptyList()); 
+    }
+    public void addSaksstatus(Link link) {
+        addLink("saksstatus", link);
     }
     @JsonIgnore
     public List<Link> getAvsluttetAv() {
@@ -96,12 +96,5 @@ public class TilskuddFredaHusPrivatEieResource extends Saksmappe implements Fint
     }
     public void addOpprettetAv(Link link) {
         addLink("opprettetAv", link);
-    }
-    @JsonIgnore
-    public List<Link> getRegistrering() {
-        return getLinks().getOrDefault("registrering", Collections.emptyList()); 
-    }
-    public void addRegistrering(Link link) {
-        addLink("registrering", link);
     }
 }

@@ -20,13 +20,12 @@ import no.fint.model.administrasjon.arkiv.Saksmappe;
 public class TilskuddFredaHusPrivatEie extends Saksmappe implements FintMainObject {
     public enum Relasjonsnavn {
             JOURNALENHET,
-            SAKSSTATUS,
-            SAKSANSVARLIG,
             ADMINISTRATIVENHET,
+            SAKSANSVARLIG,
             SAKSPART,
+            SAKSSTATUS,
             AVSLUTTETAV,
-            OPPRETTETAV,
-            REGISTRERING
+            OPPRETTETAV
     }
 
     @NonNull

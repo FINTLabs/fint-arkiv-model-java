@@ -19,13 +19,13 @@ import no.fint.model.FintMainObject;
 import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
-import no.fint.model.administrasjon.arkiv.Saksmappe;
+import no.fint.model.resource.administrasjon.arkiv.SaksmappeResource;
 
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper=true)
 @ToString(callSuper=true)
-public class TilskuddFartoyResource extends Saksmappe implements FintMainObject, FintLinks {
+public class TilskuddFartoyResource extends SaksmappeResource implements FintMainObject, FintLinks {
     // Attributes
     @NonNull
     private String kallesignal;
@@ -46,11 +46,11 @@ public class TilskuddFartoyResource extends Saksmappe implements FintMainObject,
         addLink("journalenhet", link);
     }
     @JsonIgnore
-    public List<Link> getSaksstatus() {
-        return getLinks().getOrDefault("saksstatus", Collections.emptyList()); 
+    public List<Link> getAdministrativEnhet() {
+        return getLinks().getOrDefault("administrativEnhet", Collections.emptyList()); 
     }
-    public void addSaksstatus(Link link) {
-        addLink("saksstatus", link);
+    public void addAdministrativEnhet(Link link) {
+        addLink("administrativEnhet", link);
     }
     @JsonIgnore
     public List<Link> getSaksansvarlig() {
@@ -60,18 +60,18 @@ public class TilskuddFartoyResource extends Saksmappe implements FintMainObject,
         addLink("saksansvarlig", link);
     }
     @JsonIgnore
-    public List<Link> getAdministrativEnhet() {
-        return getLinks().getOrDefault("administrativEnhet", Collections.emptyList()); 
-    }
-    public void addAdministrativEnhet(Link link) {
-        addLink("administrativEnhet", link);
-    }
-    @JsonIgnore
     public List<Link> getSakspart() {
         return getLinks().getOrDefault("sakspart", Collections.emptyList()); 
     }
     public void addSakspart(Link link) {
         addLink("sakspart", link);
+    }
+    @JsonIgnore
+    public List<Link> getSaksstatus() {
+        return getLinks().getOrDefault("saksstatus", Collections.emptyList()); 
+    }
+    public void addSaksstatus(Link link) {
+        addLink("saksstatus", link);
     }
     @JsonIgnore
     public List<Link> getAvsluttetAv() {
@@ -86,12 +86,5 @@ public class TilskuddFartoyResource extends Saksmappe implements FintMainObject,
     }
     public void addOpprettetAv(Link link) {
         addLink("opprettetAv", link);
-    }
-    @JsonIgnore
-    public List<Link> getRegistrering() {
-        return getLinks().getOrDefault("registrering", Collections.emptyList()); 
-    }
-    public void addRegistrering(Link link) {
-        addLink("registrering", link);
     }
 }

@@ -10,7 +10,7 @@ import lombok.NonNull;
 import java.util.List;
 import no.fint.model.FintAbstractObject;
 import java.util.Date;
-import no.fint.model.felles.kompleksedatatyper.Identifikator;
+import no.fint.model.administrasjon.arkiv.Registrering;
 
 @Data
 @NoArgsConstructor
@@ -19,12 +19,13 @@ import no.fint.model.felles.kompleksedatatyper.Identifikator;
 public abstract class Mappe implements FintAbstractObject {
     private Date avsluttetDato;
     private String beskrivelse;
-    private Identifikator mappeId;
+    private String mappeId;
     @NonNull
     private List<String> noekkelord;
     private String offentligTittel;
     private Date opprettetDato;
-    private Identifikator systemId;
+    @NonNull
+    private List<Registrering> registrering;
     @NonNull
     private String tittel;
 }

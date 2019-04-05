@@ -18,6 +18,8 @@ import java.util.Map;
 import no.fint.model.FintAbstractObject;
 import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
+import no.fint.model.administrasjon.arkiv.Registrering;
+import no.fint.model.resource.administrasjon.arkiv.JournalpostResource;
 import java.util.Date;
 import no.fint.model.administrasjon.arkiv.Mappe;
 
@@ -27,6 +29,19 @@ import no.fint.model.administrasjon.arkiv.Mappe;
 @ToString(callSuper=true)
 public abstract class SaksmappeResource extends Mappe implements FintAbstractObject, FintLinks {
     // Attributes
+    @JsonIgnore
+    @Override
+    public List<FintLinks> getNestedResources() {
+        List<FintLinks> result = FintLinks.super.getNestedResources();
+        if (journalpost != null) {
+            result.addAll(journalpost);
+        }
+        return result;
+    }
+    @NonNull
+    private List<Registrering> arkivnotat;
+    @NonNull
+    private List<JournalpostResource> journalpost;
     private String saksaar;
     private Date saksdato;
     private String sakssekvensnummer;

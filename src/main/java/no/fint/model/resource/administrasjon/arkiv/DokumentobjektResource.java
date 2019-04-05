@@ -15,16 +15,15 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import no.fint.model.FintMainObject;
+import no.fint.model.FintComplexDatatypeObject;
 import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
-import no.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class DokumentobjektResource implements FintMainObject, FintLinks {
+public class DokumentobjektResource implements FintComplexDatatypeObject, FintLinks {
     // Attributes
     private String filstorrelse;
     private String format;
@@ -32,7 +31,6 @@ public class DokumentobjektResource implements FintMainObject, FintLinks {
     private String referanseDokumentfil;
     private String sjekksum;
     private String sjekksumAlgoritme;
-    private Identifikator systemId;
     private Long versjonsummer;
 
     // Relations
@@ -52,12 +50,5 @@ public class DokumentobjektResource implements FintMainObject, FintLinks {
     }
     public void addVariantFormat(Link link) {
         addLink("variantFormat", link);
-    }
-    @JsonIgnore
-    public List<Link> getDokumentbeskrivelse() {
-        return getLinks().getOrDefault("dokumentbeskrivelse", Collections.emptyList()); 
-    }
-    public void addDokumentbeskrivelse(Link link) {
-        addLink("dokumentbeskrivelse", link);
     }
 }

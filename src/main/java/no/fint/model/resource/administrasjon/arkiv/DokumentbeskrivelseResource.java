@@ -15,26 +15,36 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import no.fint.model.FintMainObject;
+import no.fint.model.FintComplexDatatypeObject;
 import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
+import no.fint.model.resource.administrasjon.arkiv.DokumentobjektResource;
 import java.util.Date;
-import no.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class DokumentbeskrivelseResource implements FintMainObject, FintLinks {
+public class DokumentbeskrivelseResource implements FintComplexDatatypeObject, FintLinks {
     // Attributes
+    @JsonIgnore
+    @Override
+    public List<FintLinks> getNestedResources() {
+        List<FintLinks> result = FintLinks.super.getNestedResources();
+        if (dokumentobjekt != null) {
+            result.addAll(dokumentobjekt);
+        }
+        return result;
+    }
     private String beskrivelse;
     private Long dokumentnummer;
+    @NonNull
+    private List<DokumentobjektResource> dokumentobjekt;
     @NonNull
     private List<String> forfatter;
     private Date opprettetDato;
     @NonNull
     private List<String> referanseArkivdel;
-    private Identifikator systemId;
     private Date tilknyttetDato;
     @NonNull
     private String tittel;
@@ -72,24 +82,10 @@ public class DokumentbeskrivelseResource implements FintMainObject, FintLinks {
         addLink("dokumentType", link);
     }
     @JsonIgnore
-    public List<Link> getDokumentobjekt() {
-        return getLinks().getOrDefault("dokumentobjekt", Collections.emptyList()); 
-    }
-    public void addDokumentobjekt(Link link) {
-        addLink("dokumentobjekt", link);
-    }
-    @JsonIgnore
     public List<Link> getTilknyttetRegistreringSom() {
         return getLinks().getOrDefault("tilknyttetRegistreringSom", Collections.emptyList()); 
     }
     public void addTilknyttetRegistreringSom(Link link) {
         addLink("tilknyttetRegistreringSom", link);
-    }
-    @JsonIgnore
-    public List<Link> getJournalpost() {
-        return getLinks().getOrDefault("journalpost", Collections.emptyList()); 
-    }
-    public void addJournalpost(Link link) {
-        addLink("journalpost", link);
     }
 }

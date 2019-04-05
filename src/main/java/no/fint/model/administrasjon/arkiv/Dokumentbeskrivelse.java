@@ -8,33 +8,32 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import lombok.NonNull;
 import java.util.List;
-import no.fint.model.FintMainObject;
+import no.fint.model.FintComplexDatatypeObject;
+import no.fint.model.administrasjon.arkiv.Dokumentobjekt;
 import java.util.Date;
-import no.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class Dokumentbeskrivelse implements FintMainObject {
+public class Dokumentbeskrivelse implements FintComplexDatatypeObject {
     public enum Relasjonsnavn {
             TILKNYTTETAV,
             OPPRETTETAV,
             DOKUMENTSTATUS,
             DOKUMENTTYPE,
-            DOKUMENTOBJEKT,
-            TILKNYTTETREGISTRERINGSOM,
-            JOURNALPOST
+            TILKNYTTETREGISTRERINGSOM
     }
 
     private String beskrivelse;
     private Long dokumentnummer;
     @NonNull
+    private List<Dokumentobjekt> dokumentobjekt;
+    @NonNull
     private List<String> forfatter;
     private Date opprettetDato;
     @NonNull
     private List<String> referanseArkivdel;
-    private Identifikator systemId;
     private Date tilknyttetDato;
     @NonNull
     private String tittel;

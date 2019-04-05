@@ -19,7 +19,6 @@ import no.fint.model.felles.kompleksedatatyper.Identifikator;
 @ToString
 public class Sakspart implements FintMainObject {
     public enum Relasjonsnavn {
-            SAKSMAPPE,
             SAKSPARTROLLE
     }
 
