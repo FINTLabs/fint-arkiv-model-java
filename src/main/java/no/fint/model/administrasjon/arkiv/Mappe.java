@@ -10,7 +10,6 @@ import lombok.NonNull;
 import java.util.List;
 import no.fint.model.FintAbstractObject;
 import java.util.Date;
-import no.fint.model.administrasjon.arkiv.Registrering;
 
 @Data
 @NoArgsConstructor
@@ -24,8 +23,6 @@ public abstract class Mappe implements FintAbstractObject {
     private List<String> noekkelord;
     private String offentligTittel;
     private Date opprettetDato;
-    @NonNull
-    private List<Registrering> registrering;
     @NonNull
     private String tittel;
 }
