@@ -10,6 +10,7 @@ import java.util.List;
 import javax.validation.constraints.*;
 import no.fint.model.FintAbstractObject;
 import java.util.Date;
+import no.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Data
 @NoArgsConstructor
@@ -18,7 +19,7 @@ import java.util.Date;
 public abstract class Mappe implements FintAbstractObject {
     private Date avsluttetDato;
     private String beskrivelse;
-    private String mappeId;
+    private Identifikator mappeId;
     private List<String> noekkelord;
     private String offentligTittel;
     private Date opprettetDato;
