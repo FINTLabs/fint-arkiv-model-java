@@ -8,12 +8,12 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import lombok.ToString;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import javax.validation.constraints.*;
 
 import no.fint.model.FintComplexDatatypeObject;
 import no.fint.model.resource.FintLinks;
@@ -38,15 +38,12 @@ public class DokumentbeskrivelseResource implements FintComplexDatatypeObject, F
     }
     private String beskrivelse;
     private Long dokumentnummer;
-    @NonNull
     private List<DokumentobjektResource> dokumentobjekt;
-    @NonNull
     private List<String> forfatter;
     private Date opprettetDato;
-    @NonNull
     private List<String> referanseArkivdel;
     private Date tilknyttetDato;
-    @NonNull
+    @NotBlank
     private String tittel;
 
     // Relations
