@@ -6,8 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
+import lombok.NonNull;
 import java.util.List;
-import javax.validation.constraints.*;
 import no.fint.model.FintAbstractObject;
 import java.util.Date;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
@@ -20,9 +20,12 @@ public abstract class Mappe implements FintAbstractObject {
     private Date avsluttetDato;
     private String beskrivelse;
     private Identifikator mappeId;
+    @NonNull
     private List<String> noekkelord;
     private String offentligTittel;
     private Date opprettetDato;
-    @NotBlank
+    @NonNull
+    private Identifikator systemId;
+    @NonNull
     private String tittel;
 }

@@ -8,12 +8,12 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.ToString;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import javax.validation.constraints.*;
 
 import no.fint.model.FintComplexDatatypeObject;
 import no.fint.model.resource.FintLinks;
@@ -38,12 +38,15 @@ public class DokumentbeskrivelseResource implements FintComplexDatatypeObject, F
     }
     private String beskrivelse;
     private Long dokumentnummer;
+    @NonNull
     private List<DokumentobjektResource> dokumentobjekt;
+    @NonNull
     private List<String> forfatter;
     private Date opprettetDato;
+    @NonNull
     private List<String> referanseArkivdel;
     private Date tilknyttetDato;
-    @NotBlank
+    @NonNull
     private String tittel;
 
     // Relations
@@ -65,18 +68,18 @@ public class DokumentbeskrivelseResource implements FintComplexDatatypeObject, F
         addLink("opprettetAv", link);
     }
     @JsonIgnore
-    public List<Link> getDokumentstatus() {
-        return getLinks().getOrDefault("dokumentstatus", Collections.emptyList()); 
-    }
-    public void addDokumentstatus(Link link) {
-        addLink("dokumentstatus", link);
-    }
-    @JsonIgnore
     public List<Link> getDokumentType() {
         return getLinks().getOrDefault("dokumentType", Collections.emptyList()); 
     }
     public void addDokumentType(Link link) {
         addLink("dokumentType", link);
+    }
+    @JsonIgnore
+    public List<Link> getDokumentstatus() {
+        return getLinks().getOrDefault("dokumentstatus", Collections.emptyList()); 
+    }
+    public void addDokumentstatus(Link link) {
+        addLink("dokumentstatus", link);
     }
     @JsonIgnore
     public List<Link> getTilknyttetRegistreringSom() {

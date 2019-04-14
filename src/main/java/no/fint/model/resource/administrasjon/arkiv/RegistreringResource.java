@@ -8,12 +8,12 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.ToString;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import javax.validation.constraints.*;
 
 import no.fint.model.FintAbstractObject;
 import no.fint.model.resource.FintLinks;
@@ -38,14 +38,18 @@ public abstract class RegistreringResource implements FintAbstractObject, FintLi
     }
     private Date arkivertDato;
     private String beskrivelse;
+    @NonNull
     private List<DokumentbeskrivelseResource> dokumentbeskrivelse;
+    @NonNull
     private List<String> forfatter;
+    @NonNull
     private List<String> nokkelord;
     private String offentligTittel;
     private Date opprettetDato;
+    @NonNull
     private List<String> referanseArkivDel;
     private String registreringsId;
-    @NotBlank
+    @NonNull
     private String tittel;
 
     // Relations
