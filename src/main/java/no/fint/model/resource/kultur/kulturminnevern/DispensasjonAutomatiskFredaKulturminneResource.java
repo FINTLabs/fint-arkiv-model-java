@@ -8,12 +8,13 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import lombok.ToString;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
 
 import no.fint.model.FintMainObject;
 import no.fint.model.resource.FintLinks;
@@ -37,12 +38,12 @@ public class DispensasjonAutomatiskFredaKulturminneResource extends SaksmappeRes
         }
         return result;
     }
-    @NonNull
+    @NotBlank
     private String kulturminneId;
-    @NonNull
-    private MatrikkelnummerResource matrikkelnummer;
-    @NonNull
-    private Identifikator soknadsnummer;
+    @NotNull
+    private @Valid MatrikkelnummerResource matrikkelnummer;
+    @NotNull
+    private @Valid Identifikator soknadsnummer;
 
     // Relations
     @Getter

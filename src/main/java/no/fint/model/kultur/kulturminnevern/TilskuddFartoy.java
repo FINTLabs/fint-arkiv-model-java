@@ -6,8 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import lombok.NonNull;
 import java.util.List;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
 import no.fint.model.FintMainObject;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
 import no.fint.model.administrasjon.arkiv.Saksmappe;
@@ -27,10 +28,10 @@ public class TilskuddFartoy extends Saksmappe implements FintMainObject {
             OPPRETTETAV
     }
 
-    @NonNull
+    @NotBlank
     private String kallesignal;
-    @NonNull
+    @NotBlank
     private String kulturminneId;
-    @NonNull
-    private Identifikator soknadsnummer;
+    @NotNull
+    private @Valid Identifikator soknadsnummer;
 }

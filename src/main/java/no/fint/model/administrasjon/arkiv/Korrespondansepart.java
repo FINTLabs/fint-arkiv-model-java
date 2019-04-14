@@ -6,8 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import lombok.NonNull;
 import java.util.List;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
 import no.fint.model.FintMainObject;
 import no.fint.model.felles.kompleksedatatyper.Adresse;
 import no.fint.model.felles.kompleksedatatyper.Kontaktinformasjon;
@@ -24,9 +25,9 @@ public class Korrespondansepart implements FintMainObject {
             KORRESPONDANSEPARTTYPE
     }
 
-    private Adresse adresse;
-    private Kontaktinformasjon kontaktinformasjon;
+    private @Valid Adresse adresse;
+    private @Valid Kontaktinformasjon kontaktinformasjon;
     private String kontaktperson;
     private String korrespondansepartNavn;
-    private Identifikator systemId;
+    private @Valid Identifikator systemId;
 }
