@@ -29,7 +29,6 @@ public class DokumentobjektResource implements FintComplexDatatypeObject, FintLi
     private String filstorrelse;
     private String format;
     private String formatDetaljer;
-    private String referanseDokumentfil;
     private String sjekksum;
     private String sjekksumAlgoritme;
     private Long versjonsummer;
@@ -44,6 +43,13 @@ public class DokumentobjektResource implements FintComplexDatatypeObject, FintLi
     }
     public void addOpprettetAv(Link link) {
         addLink("opprettetAv", link);
+    }
+    @JsonIgnore
+    public List<Link> getReferanseDokumentfil() {
+        return getLinks().getOrDefault("referanseDokumentfil", Collections.emptyList()); 
+    }
+    public void addReferanseDokumentfil(Link link) {
+        addLink("referanseDokumentfil", link);
     }
     @JsonIgnore
     public List<Link> getVariantFormat() {

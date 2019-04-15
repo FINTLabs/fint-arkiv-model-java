@@ -18,13 +18,13 @@ import no.fint.model.FintComplexDatatypeObject;
 public class Dokumentobjekt implements FintComplexDatatypeObject {
     public enum Relasjonsnavn {
             OPPRETTETAV,
+            REFERANSEDOKUMENTFIL,
             VARIANTFORMAT
     }
 
     private String filstorrelse;
     private String format;
     private String formatDetaljer;
-    private String referanseDokumentfil;
     private String sjekksum;
     private String sjekksumAlgoritme;
     private Long versjonsummer;
