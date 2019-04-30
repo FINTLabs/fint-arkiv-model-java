@@ -9,11 +9,16 @@ import lombok.ToString;
 import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
-import no.fint.model.FintReference;
+import no.fint.model.FintMainObject;
+import no.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class Dokumentfil implements FintReference {
+public class Dokumentfil implements FintMainObject {
+    @NotBlank
+    private String data;
+    @NotNull
+    private @Valid Identifikator systemId;
 }
