@@ -21,6 +21,7 @@ import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
 import java.util.Date;
 import no.fint.model.resource.administrasjon.arkiv.DokumentbeskrivelseResource;
+import no.fint.model.resource.administrasjon.arkiv.KorrespondansepartResource;
 
 @Data
 @NoArgsConstructor
@@ -35,12 +36,17 @@ public abstract class RegistreringResource implements FintAbstractObject, FintLi
         if (dokumentbeskrivelse != null) {
             result.addAll(dokumentbeskrivelse);
         }
+        if (korrespondansepart != null) {
+            result.addAll(korrespondansepart);
+        }
         return result;
     }
     private Date arkivertDato;
     private String beskrivelse;
     private List<@Valid DokumentbeskrivelseResource> dokumentbeskrivelse;
     private List<String> forfatter;
+    @NotEmpty
+    private List<@Valid KorrespondansepartResource> korrespondansepart;
     private List<String> nokkelord;
     private String offentligTittel;
     private Date opprettetDato;

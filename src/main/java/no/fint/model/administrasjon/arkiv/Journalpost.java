@@ -23,8 +23,7 @@ public class Journalpost extends Registrering implements FintComplexDatatypeObje
             JOURNALSTATUS,
             JOURNALPOSTTYPE,
             ARKIVERTAV,
-            OPPRETTETAV,
-            KORRESPONDANSEPART
+            OPPRETTETAV
     }
 
     private Long antallVedlegg;

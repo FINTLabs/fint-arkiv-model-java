@@ -9,16 +9,15 @@ import lombok.ToString;
 import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
-import no.fint.model.FintMainObject;
+import no.fint.model.FintComplexDatatypeObject;
 import no.fint.model.felles.kompleksedatatyper.Adresse;
 import no.fint.model.felles.kompleksedatatyper.Kontaktinformasjon;
-import no.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class Korrespondansepart implements FintMainObject {
+public class Korrespondansepart implements FintComplexDatatypeObject {
     public enum Relasjonsnavn {
             ADMINISTRATIVENHET,
             SAKSBEHANDLER,
@@ -29,5 +28,4 @@ public class Korrespondansepart implements FintMainObject {
     private @Valid Kontaktinformasjon kontaktinformasjon;
     private String kontaktperson;
     private String korrespondansepartNavn;
-    private @Valid Identifikator systemId;
 }

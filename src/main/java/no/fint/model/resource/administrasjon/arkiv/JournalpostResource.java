@@ -78,11 +78,4 @@ public class JournalpostResource extends RegistreringResource implements FintCom
     public void addOpprettetAv(Link link) {
         addLink("opprettetAv", link);
     }
-    @JsonIgnore
-    public List<Link> getKorrespondansepart() {
-        return getLinks().getOrDefault("korrespondansepart", Collections.emptyList()); 
-    }
-    public void addKorrespondansepart(Link link) {
-        addLink("korrespondansepart", link);
-    }
 }

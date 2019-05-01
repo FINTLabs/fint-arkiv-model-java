@@ -16,18 +16,17 @@ import java.util.Map;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
-import no.fint.model.FintMainObject;
+import no.fint.model.FintComplexDatatypeObject;
 import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
 import no.fint.model.resource.felles.kompleksedatatyper.AdresseResource;
 import no.fint.model.felles.kompleksedatatyper.Kontaktinformasjon;
-import no.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class KorrespondansepartResource implements FintMainObject, FintLinks {
+public class KorrespondansepartResource implements FintComplexDatatypeObject, FintLinks {
     // Attributes
     @JsonIgnore
     @Override
@@ -42,7 +41,6 @@ public class KorrespondansepartResource implements FintMainObject, FintLinks {
     private @Valid Kontaktinformasjon kontaktinformasjon;
     private String kontaktperson;
     private String korrespondansepartNavn;
-    private @Valid Identifikator systemId;
 
     // Relations
     @Getter
