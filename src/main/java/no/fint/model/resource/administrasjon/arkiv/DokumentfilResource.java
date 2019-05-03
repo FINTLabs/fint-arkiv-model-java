@@ -29,6 +29,8 @@ public class DokumentfilResource implements FintMainObject, FintLinks {
     // Attributes
     @NotBlank
     private String data;
+    @NotBlank
+    private String format;
     @NotNull
     private @Valid Identifikator systemId;
 

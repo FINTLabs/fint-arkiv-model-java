@@ -19,6 +19,8 @@ import no.fint.model.felles.kompleksedatatyper.Identifikator;
 public class Dokumentfil implements FintMainObject {
     @NotBlank
     private String data;
+    @NotBlank
+    private String format;
     @NotNull
     private @Valid Identifikator systemId;
 }
