@@ -22,6 +22,8 @@ public class Journalpost extends Registrering implements FintComplexDatatypeObje
             JOURNALENHET,
             JOURNALSTATUS,
             JOURNALPOSTTYPE,
+            ADMINISTRATIVENHET,
+            SAKSBEHANDLER,
             ARKIVERTAV,
             OPPRETTETAV
     }

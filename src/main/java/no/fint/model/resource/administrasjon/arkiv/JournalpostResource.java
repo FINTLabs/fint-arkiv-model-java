@@ -65,6 +65,20 @@ public class JournalpostResource extends RegistreringResource implements FintCom
         addLink("journalPostType", link);
     }
     @JsonIgnore
+    public List<Link> getAdministrativEnhet() {
+        return getLinks().getOrDefault("administrativEnhet", Collections.emptyList()); 
+    }
+    public void addAdministrativEnhet(Link link) {
+        addLink("administrativEnhet", link);
+    }
+    @JsonIgnore
+    public List<Link> getSaksbehandler() {
+        return getLinks().getOrDefault("saksbehandler", Collections.emptyList()); 
+    }
+    public void addSaksbehandler(Link link) {
+        addLink("saksbehandler", link);
+    }
+    @JsonIgnore
     public List<Link> getArkivertAv() {
         return getLinks().getOrDefault("arkivertAv", Collections.emptyList()); 
     }
