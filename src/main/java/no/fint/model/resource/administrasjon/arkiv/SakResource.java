@@ -53,13 +53,6 @@ public class SakResource extends SaksmappeResource implements FintMainObject, Fi
         addLink("saksansvarlig", link);
     }
     @JsonIgnore
-    public List<Link> getSakspart() {
-        return getLinks().getOrDefault("sakspart", Collections.emptyList()); 
-    }
-    public void addSakspart(Link link) {
-        addLink("sakspart", link);
-    }
-    @JsonIgnore
     public List<Link> getSaksstatus() {
         return getLinks().getOrDefault("saksstatus", Collections.emptyList()); 
     }

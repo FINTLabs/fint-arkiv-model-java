@@ -25,7 +25,7 @@ import no.fint.model.felles.basisklasser.Begrep;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper=true)
 @ToString(callSuper=true)
-public class SakspartRolleResource extends Begrep implements FintMainObject, FintLinks {
+public class PartRolleResource extends Begrep implements FintMainObject, FintLinks {
 
     // Relations
     @Getter

@@ -12,6 +12,7 @@ import javax.validation.constraints.*;
 import no.fint.model.FintAbstractObject;
 import java.util.Date;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
+import no.fint.model.administrasjon.arkiv.Partsinformasjon;
 
 @Data
 @NoArgsConstructor
@@ -24,6 +25,8 @@ public abstract class Mappe implements FintAbstractObject {
     private List<String> noekkelord;
     private String offentligTittel;
     private Date opprettetDato;
+    @NotEmpty
+    private List<@Valid Partsinformasjon> part;
     @NotNull
     private @Valid Identifikator systemId;
     @NotBlank

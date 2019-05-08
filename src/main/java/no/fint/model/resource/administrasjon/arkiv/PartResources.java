@@ -12,16 +12,16 @@ import lombok.NoArgsConstructor;
 import no.fint.model.resource.AbstractCollectionResources;
 
 @NoArgsConstructor
-public class SakspartRolleResources extends AbstractCollectionResources<SakspartRolleResource> {
+public class PartResources extends AbstractCollectionResources<PartResource> {
 
-    public SakspartRolleResources(Collection<SakspartRolleResource> input) {
+    public PartResources(Collection<PartResource> input) {
         super(input);
     }
 
     @JsonIgnore
     @Deprecated
     @Override
-    public TypeReference<List<SakspartRolleResource>> getTypeReference() {
-        return new TypeReference<List<SakspartRolleResource>>() {};
+    public TypeReference<List<PartResource>> getTypeReference() {
+        return new TypeReference<List<PartResource>>() {};
     }
 }

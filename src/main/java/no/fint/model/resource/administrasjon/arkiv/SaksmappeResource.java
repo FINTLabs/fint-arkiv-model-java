@@ -22,18 +22,18 @@ import no.fint.model.resource.Link;
 import no.fint.model.administrasjon.arkiv.Registrering;
 import no.fint.model.resource.administrasjon.arkiv.JournalpostResource;
 import java.util.Date;
-import no.fint.model.administrasjon.arkiv.Mappe;
+import no.fint.model.resource.administrasjon.arkiv.MappeResource;
 
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper=true)
 @ToString(callSuper=true)
-public abstract class SaksmappeResource extends Mappe implements FintAbstractObject, FintLinks {
+public abstract class SaksmappeResource extends MappeResource implements FintAbstractObject, FintLinks {
     // Attributes
     @JsonIgnore
     @Override
     public List<FintLinks> getNestedResources() {
-        List<FintLinks> result = FintLinks.super.getNestedResources();
+        List<FintLinks> result = super.getNestedResources();
         if (journalpost != null) {
             result.addAll(journalpost);
         }

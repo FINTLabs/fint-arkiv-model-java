@@ -21,6 +21,7 @@ import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
 import java.util.Date;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
+import no.fint.model.resource.administrasjon.arkiv.PartsinformasjonResource;
 
 @Data
 @NoArgsConstructor
@@ -28,12 +29,23 @@ import no.fint.model.felles.kompleksedatatyper.Identifikator;
 @ToString
 public abstract class MappeResource implements FintAbstractObject, FintLinks {
     // Attributes
+    @JsonIgnore
+    @Override
+    public List<FintLinks> getNestedResources() {
+        List<FintLinks> result = FintLinks.super.getNestedResources();
+        if (part != null) {
+            result.addAll(part);
+        }
+        return result;
+    }
     private Date avsluttetDato;
     private String beskrivelse;
     private @Valid Identifikator mappeId;
     private List<String> noekkelord;
     private String offentligTittel;
     private Date opprettetDato;
+    @NotEmpty
+    private List<@Valid PartsinformasjonResource> part;
     @NotNull
     private @Valid Identifikator systemId;
     @NotBlank

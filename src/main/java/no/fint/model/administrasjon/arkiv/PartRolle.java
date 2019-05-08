@@ -16,5 +16,5 @@ import no.fint.model.felles.basisklasser.Begrep;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper=true)
 @ToString(callSuper=true)
-public class SakspartRolle extends Begrep implements FintMainObject {
+public class PartRolle extends Begrep implements FintMainObject {
 }

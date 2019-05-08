@@ -18,15 +18,11 @@ import no.fint.model.felles.kompleksedatatyper.Identifikator;
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class Sakspart implements FintMainObject {
-    public enum Relasjonsnavn {
-            SAKSPARTROLLE
-    }
-
+public class Part implements FintMainObject {
     private @Valid Adresse adresse;
     private @Valid Kontaktinformasjon kontaktinformasjon;
     private String kontaktperson;
-    private @Valid Identifikator sakspartId;
+    private @Valid Identifikator partId;
     @NotBlank
-    private String sakspartNavn;
+    private String partNavn;
 }

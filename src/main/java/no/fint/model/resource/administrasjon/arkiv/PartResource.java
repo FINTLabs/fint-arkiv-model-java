@@ -27,7 +27,7 @@ import no.fint.model.felles.kompleksedatatyper.Identifikator;
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class SakspartResource implements FintMainObject, FintLinks {
+public class PartResource implements FintMainObject, FintLinks {
     // Attributes
     @JsonIgnore
     @Override
@@ -41,19 +41,11 @@ public class SakspartResource implements FintMainObject, FintLinks {
     private @Valid AdresseResource adresse;
     private @Valid Kontaktinformasjon kontaktinformasjon;
     private String kontaktperson;
-    private @Valid Identifikator sakspartId;
+    private @Valid Identifikator partId;
     @NotBlank
-    private String sakspartNavn;
+    private String partNavn;
 
     // Relations
     @Getter
     private final Map<String, List<Link>> links = createLinks();
-        
-    @JsonIgnore
-    public List<Link> getSakspartRolle() {
-        return getLinks().getOrDefault("sakspartRolle", Collections.emptyList()); 
-    }
-    public void addSakspartRolle(Link link) {
-        addLink("sakspartRolle", link);
-    }
 }

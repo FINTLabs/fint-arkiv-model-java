@@ -21,7 +21,6 @@ public class Sak extends Saksmappe implements FintMainObject {
             JOURNALENHET,
             ADMINISTRATIVENHET,
             SAKSANSVARLIG,
-            SAKSPART,
             SAKSSTATUS,
             AVSLUTTETAV,
             OPPRETTETAV
