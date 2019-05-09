@@ -11,8 +11,8 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 import no.fint.model.FintMainObject;
 import no.fint.model.felles.kompleksedatatyper.Adresse;
-import no.fint.model.felles.kompleksedatatyper.Kontaktinformasjon;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
+import no.fint.model.felles.kompleksedatatyper.Kontaktinformasjon;
 
 @Data
 @NoArgsConstructor
@@ -20,9 +20,11 @@ import no.fint.model.felles.kompleksedatatyper.Identifikator;
 @ToString
 public class Korrespondansepart implements FintMainObject {
     private @Valid Adresse adresse;
+    private @Valid Identifikator fodselsnummer;
     private @Valid Kontaktinformasjon kontaktinformasjon;
     private String kontaktperson;
     private String korrespondansepartNavn;
+    private @Valid Identifikator organisasjonsnummer;
     @NotNull
     private @Valid Identifikator systemId;
 }
