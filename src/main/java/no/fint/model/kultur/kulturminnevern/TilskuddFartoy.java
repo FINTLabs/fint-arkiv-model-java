@@ -22,12 +22,13 @@ public class TilskuddFartoy extends Saksmappe implements FintMainObject {
             JOURNALENHET,
             ADMINISTRATIVENHET,
             SAKSANSVARLIG,
-            SAKSPART,
             SAKSSTATUS,
             AVSLUTTETAV,
             OPPRETTETAV
     }
 
+    @NotBlank
+    private String fartoyNavn;
     @NotBlank
     private String kallesignal;
     @NotBlank

@@ -23,6 +23,7 @@ dependencies {
 
     compile('javax.validation:validation-api:2.0.1.Final')
     compileOnly("org.projectlombok:lombok:${lombokVersion}")
+    annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
 
     testCompile("org.spockframework:spock-core:${spockSpringVersion}")
     testCompile("org.spockframework:spock-spring:${spockSpringVersion}")
@@ -30,11 +31,6 @@ dependencies {
     testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
     testCompile('org.springframework.plugin:spring-plugin-core:1.2.0.RELEASE')
     testCompile('org.springframework.hateoas:spring-hateoas:0.25.1.RELEASE')
-}
-
-
-task wrapper(type: Wrapper) {
-    gradleVersion = gradleVersion
 }
 
 test {

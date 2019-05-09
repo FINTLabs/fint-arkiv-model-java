@@ -23,7 +23,6 @@ public class TilskuddFredaHusPrivatEie extends Saksmappe implements FintMainObje
             JOURNALENHET,
             ADMINISTRATIVENHET,
             SAKSANSVARLIG,
-            SAKSPART,
             SAKSSTATUS,
             AVSLUTTETAV,
             OPPRETTETAV

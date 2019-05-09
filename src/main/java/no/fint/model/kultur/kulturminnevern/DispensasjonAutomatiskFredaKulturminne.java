@@ -23,7 +23,6 @@ public class DispensasjonAutomatiskFredaKulturminne extends Saksmappe implements
             JOURNALENHET,
             ADMINISTRATIVENHET,
             SAKSANSVARLIG,
-            SAKSPART,
             SAKSSTATUS,
             AVSLUTTETAV,
             OPPRETTETAV

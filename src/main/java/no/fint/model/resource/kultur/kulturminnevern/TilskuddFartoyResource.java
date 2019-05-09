@@ -29,6 +29,8 @@ import no.fint.model.resource.administrasjon.arkiv.SaksmappeResource;
 public class TilskuddFartoyResource extends SaksmappeResource implements FintMainObject, FintLinks {
     // Attributes
     @NotBlank
+    private String fartoyNavn;
+    @NotBlank
     private String kallesignal;
     @NotBlank
     private String kulturminneId;
@@ -59,13 +61,6 @@ public class TilskuddFartoyResource extends SaksmappeResource implements FintMai
     }
     public void addSaksansvarlig(Link link) {
         addLink("saksansvarlig", link);
-    }
-    @JsonIgnore
-    public List<Link> getSakspart() {
-        return getLinks().getOrDefault("sakspart", Collections.emptyList()); 
-    }
-    public void addSakspart(Link link) {
-        addLink("sakspart", link);
     }
     @JsonIgnore
     public List<Link> getSaksstatus() {
