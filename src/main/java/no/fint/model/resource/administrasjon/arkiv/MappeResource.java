@@ -22,6 +22,7 @@ import no.fint.model.resource.Link;
 import java.util.Date;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
 import no.fint.model.resource.administrasjon.arkiv.PartsinformasjonResource;
+import no.fint.model.resource.administrasjon.arkiv.SkjermingResource;
 
 @Data
 @NoArgsConstructor
@@ -36,6 +37,9 @@ public abstract class MappeResource implements FintAbstractObject, FintLinks {
         if (part != null) {
             result.addAll(part);
         }
+        if (skjerming != null) {
+            result.add(skjerming);
+        }
         return result;
     }
     private Date avsluttetDato;
@@ -46,6 +50,7 @@ public abstract class MappeResource implements FintAbstractObject, FintLinks {
     private Date opprettetDato;
     @NotEmpty
     private List<@Valid PartsinformasjonResource> part;
+    private @Valid SkjermingResource skjerming;
     @NotNull
     private @Valid Identifikator systemId;
     @NotBlank

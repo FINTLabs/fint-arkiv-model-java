@@ -14,6 +14,7 @@ import java.util.Date;
 import no.fint.model.administrasjon.arkiv.Dokumentbeskrivelse;
 import no.fint.model.administrasjon.arkiv.Korrespondanse;
 import no.fint.model.administrasjon.arkiv.Partsinformasjon;
+import no.fint.model.administrasjon.arkiv.Skjerming;
 
 @Data
 @NoArgsConstructor
@@ -32,6 +33,7 @@ public abstract class Registrering implements FintAbstractObject {
     private List<@Valid Partsinformasjon> part;
     private List<String> referanseArkivDel;
     private String registreringsId;
+    private @Valid Skjerming skjerming;
     @NotBlank
     private String tittel;
 }

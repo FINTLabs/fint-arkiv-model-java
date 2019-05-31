@@ -22,6 +22,7 @@ import no.fint.model.resource.Link;
 import no.fint.model.resource.administrasjon.arkiv.DokumentobjektResource;
 import java.util.Date;
 import no.fint.model.resource.administrasjon.arkiv.PartsinformasjonResource;
+import no.fint.model.resource.administrasjon.arkiv.SkjermingResource;
 
 @Data
 @NoArgsConstructor
@@ -39,6 +40,9 @@ public class DokumentbeskrivelseResource implements FintComplexDatatypeObject, F
         if (part != null) {
             result.addAll(part);
         }
+        if (skjerming != null) {
+            result.add(skjerming);
+        }
         return result;
     }
     private String beskrivelse;
@@ -48,6 +52,7 @@ public class DokumentbeskrivelseResource implements FintComplexDatatypeObject, F
     private Date opprettetDato;
     private List<@Valid PartsinformasjonResource> part;
     private List<String> referanseArkivdel;
+    private @Valid SkjermingResource skjerming;
     private Date tilknyttetDato;
     @NotBlank
     private String tittel;

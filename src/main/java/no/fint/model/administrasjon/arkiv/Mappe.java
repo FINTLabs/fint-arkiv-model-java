@@ -13,6 +13,7 @@ import no.fint.model.FintAbstractObject;
 import java.util.Date;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
 import no.fint.model.administrasjon.arkiv.Partsinformasjon;
+import no.fint.model.administrasjon.arkiv.Skjerming;
 
 @Data
 @NoArgsConstructor
@@ -27,6 +28,7 @@ public abstract class Mappe implements FintAbstractObject {
     private Date opprettetDato;
     @NotEmpty
     private List<@Valid Partsinformasjon> part;
+    private @Valid Skjerming skjerming;
     @NotNull
     private @Valid Identifikator systemId;
     @NotBlank

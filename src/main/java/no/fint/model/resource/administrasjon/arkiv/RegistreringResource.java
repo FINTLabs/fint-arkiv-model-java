@@ -23,6 +23,7 @@ import java.util.Date;
 import no.fint.model.resource.administrasjon.arkiv.DokumentbeskrivelseResource;
 import no.fint.model.resource.administrasjon.arkiv.KorrespondanseResource;
 import no.fint.model.resource.administrasjon.arkiv.PartsinformasjonResource;
+import no.fint.model.resource.administrasjon.arkiv.SkjermingResource;
 
 @Data
 @NoArgsConstructor
@@ -43,6 +44,9 @@ public abstract class RegistreringResource implements FintAbstractObject, FintLi
         if (part != null) {
             result.addAll(part);
         }
+        if (skjerming != null) {
+            result.add(skjerming);
+        }
         return result;
     }
     private Date arkivertDato;
@@ -57,6 +61,7 @@ public abstract class RegistreringResource implements FintAbstractObject, FintLi
     private List<@Valid PartsinformasjonResource> part;
     private List<String> referanseArkivDel;
     private String registreringsId;
+    private @Valid SkjermingResource skjerming;
     @NotBlank
     private String tittel;
 
