@@ -21,6 +21,7 @@ import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
 import java.util.Date;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
+import no.fint.model.resource.administrasjon.arkiv.MerknadResource;
 import no.fint.model.resource.administrasjon.arkiv.PartsinformasjonResource;
 import no.fint.model.resource.administrasjon.arkiv.SkjermingResource;
 
@@ -34,6 +35,9 @@ public abstract class MappeResource implements FintAbstractObject, FintLinks {
     @Override
     public List<FintLinks> getNestedResources() {
         List<FintLinks> result = FintLinks.super.getNestedResources();
+        if (merknad != null) {
+            result.addAll(merknad);
+        }
         if (part != null) {
             result.addAll(part);
         }
@@ -45,6 +49,7 @@ public abstract class MappeResource implements FintAbstractObject, FintLinks {
     private Date avsluttetDato;
     private String beskrivelse;
     private @Valid Identifikator mappeId;
+    private List<@Valid MerknadResource> merknad;
     private List<String> noekkelord;
     private String offentligTittel;
     private Date opprettetDato;

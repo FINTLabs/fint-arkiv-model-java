@@ -22,6 +22,7 @@ import no.fint.model.resource.Link;
 import java.util.Date;
 import no.fint.model.resource.administrasjon.arkiv.DokumentbeskrivelseResource;
 import no.fint.model.resource.administrasjon.arkiv.KorrespondanseResource;
+import no.fint.model.resource.administrasjon.arkiv.MerknadResource;
 import no.fint.model.resource.administrasjon.arkiv.PartsinformasjonResource;
 import no.fint.model.resource.administrasjon.arkiv.SkjermingResource;
 
@@ -41,6 +42,9 @@ public abstract class RegistreringResource implements FintAbstractObject, FintLi
         if (korrespondansepart != null) {
             result.addAll(korrespondansepart);
         }
+        if (merknad != null) {
+            result.addAll(merknad);
+        }
         if (part != null) {
             result.addAll(part);
         }
@@ -55,6 +59,7 @@ public abstract class RegistreringResource implements FintAbstractObject, FintLi
     private List<String> forfatter;
     @NotEmpty
     private List<@Valid KorrespondanseResource> korrespondansepart;
+    private List<@Valid MerknadResource> merknad;
     private List<String> nokkelord;
     private String offentligTittel;
     private Date opprettetDato;

@@ -44,25 +44,25 @@ public class JournalpostResource extends RegistreringResource implements FintCom
     private final Map<String, List<Link>> links = createLinks();
         
     @JsonIgnore
-    public List<Link> getJournalEnhet() {
-        return getLinks().getOrDefault("journalEnhet", Collections.emptyList()); 
+    public List<Link> getJournalenhet() {
+        return getLinks().getOrDefault("journalenhet", Collections.emptyList()); 
     }
-    public void addJournalEnhet(Link link) {
-        addLink("journalEnhet", link);
-    }
-    @JsonIgnore
-    public List<Link> getJournalStatus() {
-        return getLinks().getOrDefault("journalStatus", Collections.emptyList()); 
-    }
-    public void addJournalStatus(Link link) {
-        addLink("journalStatus", link);
+    public void addJournalenhet(Link link) {
+        addLink("journalenhet", link);
     }
     @JsonIgnore
-    public List<Link> getJournalPostType() {
-        return getLinks().getOrDefault("journalPostType", Collections.emptyList()); 
+    public List<Link> getJournalstatus() {
+        return getLinks().getOrDefault("journalstatus", Collections.emptyList()); 
     }
-    public void addJournalPostType(Link link) {
-        addLink("journalPostType", link);
+    public void addJournalstatus(Link link) {
+        addLink("journalstatus", link);
+    }
+    @JsonIgnore
+    public List<Link> getJournalposttype() {
+        return getLinks().getOrDefault("journalposttype", Collections.emptyList()); 
+    }
+    public void addJournalposttype(Link link) {
+        addLink("journalposttype", link);
     }
     @JsonIgnore
     public List<Link> getAdministrativEnhet() {

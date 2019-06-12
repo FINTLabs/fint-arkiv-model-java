@@ -13,6 +13,7 @@ import no.fint.model.FintAbstractObject;
 import java.util.Date;
 import no.fint.model.administrasjon.arkiv.Dokumentbeskrivelse;
 import no.fint.model.administrasjon.arkiv.Korrespondanse;
+import no.fint.model.administrasjon.arkiv.Merknad;
 import no.fint.model.administrasjon.arkiv.Partsinformasjon;
 import no.fint.model.administrasjon.arkiv.Skjerming;
 
@@ -27,6 +28,7 @@ public abstract class Registrering implements FintAbstractObject {
     private List<String> forfatter;
     @NotEmpty
     private List<@Valid Korrespondanse> korrespondansepart;
+    private List<@Valid Merknad> merknad;
     private List<String> nokkelord;
     private String offentligTittel;
     private Date opprettetDato;
