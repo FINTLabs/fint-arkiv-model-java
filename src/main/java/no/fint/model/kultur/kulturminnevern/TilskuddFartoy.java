@@ -18,15 +18,6 @@ import no.fint.model.administrasjon.arkiv.Saksmappe;
 @EqualsAndHashCode(callSuper=true)
 @ToString(callSuper=true)
 public class TilskuddFartoy extends Saksmappe implements FintMainObject {
-    public enum Relasjonsnavn {
-            JOURNALENHET,
-            ADMINISTRATIVENHET,
-            SAKSANSVARLIG,
-            SAKSSTATUS,
-            AVSLUTTETAV,
-            OPPRETTETAV
-    }
-
     @NotBlank
     private String fartoyNavn;
     @NotBlank

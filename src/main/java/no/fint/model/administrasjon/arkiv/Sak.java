@@ -17,13 +17,4 @@ import no.fint.model.administrasjon.arkiv.Saksmappe;
 @EqualsAndHashCode(callSuper=true)
 @ToString(callSuper=true)
 public class Sak extends Saksmappe implements FintMainObject {
-    public enum Relasjonsnavn {
-            JOURNALENHET,
-            ADMINISTRATIVENHET,
-            SAKSANSVARLIG,
-            SAKSSTATUS,
-            AVSLUTTETAV,
-            OPPRETTETAV
-    }
-
 }

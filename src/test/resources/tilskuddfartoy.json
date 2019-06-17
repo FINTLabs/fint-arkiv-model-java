@@ -1,0 +1,135 @@
+{
+  "mappeId": {
+    "identifikatorverdi": "19/00114"
+  },
+  "noekkelord": [
+    "Fartøy",
+    "Ternen"
+  ],
+  "offentligTittel": "Tilskudd - AWQR - Ternen - 232291-0 - 153 - FINT Test #1",
+  "opprettetDato": "2019-05-29T08:36:35Z",
+  "part": [],
+  "systemId": {
+    "identifikatorverdi": "234845"
+  },
+  "tittel": "Tilskudd - AWQR - Ternen - 232291-0 - 153 - FINT Test #1",
+  "journalpost": [
+    {
+      "beskrivelse": "Inngående eksternt produsert - Registrert av ansvarlig person/leder - Grønn - Ugradert",
+      "dokumentbeskrivelse": [
+        {
+          "beskrivelse": "Behandles - Hoveddokument - Grønn - Ugradert - null",
+          "dokumentobjekt": [
+            {
+              "format": "PDF",
+              "_links": {
+                "referanseDokumentfil": [
+                  {
+                    "href": "https://beta.felleskomponent.no/administrasjon/arkiv/dokumentfil/systemid/728205"
+                  }
+                ]
+              }
+            }
+          ],
+          "forfatter": [
+            "FINT SIFSOAP"
+          ],
+          "tittel": "Dokumentasjon",
+          "_links": {
+            "tilknyttetRegistreringSom": [
+              {
+                "href": "https://beta.felleskomponent.no/administrasjon/arkiv/tilknyttetregistreringsom/systemid/1"
+              }
+            ],
+            "dokumentType": [
+              {
+                "href": "https://beta.felleskomponent.no/administrasjon/arkiv/dokumenttype/systemid/1"
+              }
+            ]
+          }
+        }
+      ],
+      "forfatter": [
+        ""
+      ],
+      "korrespondansepart": [
+        {
+          "_links": {
+            "korrespondansepart": [
+              {
+                "href": "https://beta.felleskomponent.no/administrasjon/arkiv/korrespondansepart/systemid/225960"
+              }
+            ],
+            "korrespondanseparttype": [
+              {
+                "href": "https://beta.felleskomponent.no/administrasjon/arkiv/korrespondanseparttype/systemid/5"
+              }
+            ]
+          }
+        },
+        {
+          "_links": {
+            "korrespondansepart": [
+              {
+                "href": "https://beta.felleskomponent.no/administrasjon/arkiv/korrespondansepart/systemid/206760"
+              }
+            ],
+            "korrespondanseparttype": [
+              {
+                "href": "https://beta.felleskomponent.no/administrasjon/arkiv/korrespondanseparttype/systemid/6"
+              }
+            ]
+          }
+        }
+      ],
+      "nokkelord": [],
+      "offentligTittel": "Kommentar til avslag på søknad",
+      "opprettetDato": "2019-05-29T08:36:35Z",
+      "referanseArkivDel": [],
+      "tittel": "Kommentar til avslag på søknad",
+      "antallVedlegg": 1,
+      "journalSekvensnummer": 1,
+      "_links": {
+        "administrativEnhet": [
+          {
+            "href": "https://beta.felleskomponent.no/organisasjonsnummer/"
+          }
+        ],
+        "journalPostType": [
+          {
+            "href": "https://beta.felleskomponent.no/administrasjon/arkiv/journalposttype/systemid/110"
+          }
+        ],
+        "journalstatus": [
+          {
+            "href": "https://beta.felleskomponent.no/administrasjon/arkiv/journalstatus/systemid/3"
+          }
+        ]
+      }
+    }
+  ],
+  "saksaar": "19",
+  "saksdato": "2019-05-29T08:36:35Z",
+  "sakssekvensnummer": "00114",
+  "fartoyNavn": "Ternen",
+  "kallesignal": "AWQR",
+  "kulturminneId": "232291-0",
+  "soknadsnummer": {
+    "identifikatorverdi": "153"
+  },
+  "_links": {
+    "saksstatus": [
+      {
+        "href": "https://beta.felleskomponent.no/administrasjon/arkiv/saksstatus/systemid/5"
+      }
+    ],
+    "self": [
+      {
+        "href": "https://beta.felleskomponent.no/kultur/kulturminnevern/tilskuddfartoy/mappeid/19/00114"
+      },
+      {
+        "href": "https://beta.felleskomponent.no/kultur/kulturminnevern/tilskuddfartoy/systemid/234845"
+      }
+    ]
+  }
+}

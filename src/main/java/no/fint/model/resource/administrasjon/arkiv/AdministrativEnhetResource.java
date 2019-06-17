@@ -19,15 +19,26 @@ import javax.validation.constraints.*;
 import no.fint.model.FintMainObject;
 import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
-import no.fint.model.resource.administrasjon.arkiv.SaksmappeResource;
+import no.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Data
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper=true)
-@ToString(callSuper=true)
-public class SakResource extends SaksmappeResource implements FintMainObject, FintLinks {
+@EqualsAndHashCode
+@ToString
+public class AdministrativEnhetResource implements FintMainObject, FintLinks {
+    // Attributes
+    @NotNull
+    private @Valid Identifikator systemId;
 
     // Relations
     @Getter
     private final Map<String, List<Link>> links = createLinks();
+        
+    @JsonIgnore
+    public List<Link> getBruker() {
+        return getLinks().getOrDefault("bruker", Collections.emptyList()); 
+    }
+    public void addBruker(Link link) {
+        addLink("bruker", link);
+    }
 }

@@ -1,11 +1,8 @@
 package no.fint.test.model
 
-import com.fasterxml.jackson.databind.DeserializationFeature
+
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException
-import no.fint.model.administrasjon.personal.Fastlonn
-import no.fint.model.resource.administrasjon.personal.FastlonnResource
-import no.fint.model.resource.administrasjon.personal.FastlonnResources
+import no.fint.model.resource.kultur.kulturminnevern.TilskuddFartoyResource
 import spock.lang.Specification
 
 class ModelDeserializationSpec extends Specification {
@@ -13,6 +10,21 @@ class ModelDeserializationSpec extends Specification {
 
     void setup() {
         objectMapper = new ObjectMapper()
+    }
+
+    def 'Read TilskuddFartoyResource from JSON'() {
+        given:
+        def input = getClass().getResourceAsStream('/tilskuddfartoy.json')
+
+        when:
+        def result = objectMapper.readValue(input, TilskuddFartoyResource) as TilskuddFartoyResource
+        println(result)
+
+        then:
+        result.sakssekvensnummer == '00114'
+        result.saksstatus.any { it.href.contains('/saksstatus/')}
+        result.journalpost.any { it.journalstatus.any { it.href.endsWith('/journalstatus/systemid/3') } }
+        result.journalpost.any { it.korrespondansepart.any { it.korrespondansepart.any { it.href.endsWith('/225960') } } }
     }
 
     /*

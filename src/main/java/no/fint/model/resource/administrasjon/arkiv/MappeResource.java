@@ -64,4 +64,19 @@ public abstract class MappeResource implements FintAbstractObject, FintLinks {
     // Relations
     @Getter
     private final Map<String, List<Link>> links = createLinks();
+        
+    @JsonIgnore
+    public List<Link> getAvsluttetAv() {
+        return getLinks().getOrDefault("avsluttetAv", Collections.emptyList()); 
+    }
+    public void addAvsluttetAv(Link link) {
+        addLink("avsluttetAv", link);
+    }
+    @JsonIgnore
+    public List<Link> getOpprettetAv() {
+        return getLinks().getOrDefault("opprettetAv", Collections.emptyList()); 
+    }
+    public void addOpprettetAv(Link link) {
+        addLink("opprettetAv", link);
+    }
 }

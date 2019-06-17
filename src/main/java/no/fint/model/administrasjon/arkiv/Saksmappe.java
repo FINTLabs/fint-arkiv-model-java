@@ -20,6 +20,13 @@ import no.fint.model.administrasjon.arkiv.Mappe;
 @EqualsAndHashCode(callSuper=true)
 @ToString(callSuper=true)
 public abstract class Saksmappe extends Mappe implements FintAbstractObject {
+    public enum Relasjonsnavn {
+            JOURNALENHET,
+            ADMINISTRATIVENHET,
+            SAKSANSVARLIG,
+            SAKSSTATUS
+    }
+
     private List<@Valid Registrering> arkivnotat;
     private List<@Valid Journalpost> journalpost;
     private String saksaar;

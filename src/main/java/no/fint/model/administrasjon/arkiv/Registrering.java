@@ -22,6 +22,13 @@ import no.fint.model.administrasjon.arkiv.Skjerming;
 @EqualsAndHashCode
 @ToString
 public abstract class Registrering implements FintAbstractObject {
+    public enum Relasjonsnavn {
+            ADMINISTRATIVENHET,
+            SAKSBEHANDLER,
+            ARKIVERTAV,
+            OPPRETTETAV
+    }
+
     private Date arkivertDato;
     private String beskrivelse;
     private List<@Valid Dokumentbeskrivelse> dokumentbeskrivelse;

@@ -19,15 +19,6 @@ import no.fint.model.administrasjon.arkiv.Saksmappe;
 @EqualsAndHashCode(callSuper=true)
 @ToString(callSuper=true)
 public class DispensasjonAutomatiskFredaKulturminne extends Saksmappe implements FintMainObject {
-    public enum Relasjonsnavn {
-            JOURNALENHET,
-            ADMINISTRATIVENHET,
-            SAKSANSVARLIG,
-            SAKSSTATUS,
-            AVSLUTTETAV,
-            OPPRETTETAV
-    }
-
     @NotBlank
     private String kulturminneId;
     @NotNull

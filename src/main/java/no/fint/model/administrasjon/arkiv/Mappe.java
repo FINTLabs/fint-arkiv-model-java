@@ -21,6 +21,11 @@ import no.fint.model.administrasjon.arkiv.Skjerming;
 @EqualsAndHashCode
 @ToString
 public abstract class Mappe implements FintAbstractObject {
+    public enum Relasjonsnavn {
+            AVSLUTTETAV,
+            OPPRETTETAV
+    }
+
     private Date avsluttetDato;
     private String beskrivelse;
     private @Valid Identifikator mappeId;
