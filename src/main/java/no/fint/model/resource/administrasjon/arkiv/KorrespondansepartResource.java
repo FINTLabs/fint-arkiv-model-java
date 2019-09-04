@@ -44,7 +44,6 @@ public class KorrespondansepartResource implements FintMainObject, FintLinks {
     private String kontaktperson;
     private String korrespondansepartNavn;
     private @Valid Identifikator organisasjonsnummer;
-    @NotNull
     private @Valid Identifikator systemId;
 
     // Relations
