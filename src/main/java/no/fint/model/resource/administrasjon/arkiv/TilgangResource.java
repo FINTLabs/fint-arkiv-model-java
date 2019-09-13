@@ -25,7 +25,7 @@ import no.fint.model.felles.kompleksedatatyper.Identifikator;
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class AdministrativEnhetResource implements FintMainObject, FintLinks {
+public class TilgangResource implements FintMainObject, FintLinks {
     // Attributes
     @NotNull
     private @Valid Identifikator systemId;
@@ -35,10 +35,17 @@ public class AdministrativEnhetResource implements FintMainObject, FintLinks {
     private final Map<String, List<Link>> links = createLinks();
         
     @JsonIgnore
-    public List<Link> getArkivressurs() {
-        return getLinks().getOrDefault("arkivressurs", Collections.emptyList()); 
+    public List<Link> getRolle() {
+        return getLinks().getOrDefault("rolle", Collections.emptyList()); 
     }
-    public void addArkivressurs(Link link) {
-        addLink("arkivressurs", link);
+    public void addRolle(Link link) {
+        addLink("rolle", link);
+    }
+    @JsonIgnore
+    public List<Link> getTilgangsrestriksjon() {
+        return getLinks().getOrDefault("tilgangsrestriksjon", Collections.emptyList()); 
+    }
+    public void addTilgangsrestriksjon(Link link) {
+        addLink("tilgangsrestriksjon", link);
     }
 }

@@ -19,16 +19,13 @@ import javax.validation.constraints.*;
 import no.fint.model.FintMainObject;
 import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
-import no.fint.model.felles.kompleksedatatyper.Identifikator;
+import no.fint.model.felles.basisklasser.Begrep;
 
 @Data
 @NoArgsConstructor
-@EqualsAndHashCode
-@ToString
-public class AdministrativEnhetResource implements FintMainObject, FintLinks {
-    // Attributes
-    @NotNull
-    private @Valid Identifikator systemId;
+@EqualsAndHashCode(callSuper=true)
+@ToString(callSuper=true)
+public class RolleResource extends Begrep implements FintMainObject, FintLinks {
 
     // Relations
     @Getter
