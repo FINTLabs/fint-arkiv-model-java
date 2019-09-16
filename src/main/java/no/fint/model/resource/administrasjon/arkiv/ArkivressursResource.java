@@ -27,7 +27,7 @@ import no.fint.model.felles.kompleksedatatyper.Identifikator;
 @ToString
 public class ArkivressursResource implements FintMainObject, FintLinks {
     // Attributes
-    @NotNull
+    private @Valid Identifikator kildesystemId;
     private @Valid Identifikator systemId;
 
     // Relations

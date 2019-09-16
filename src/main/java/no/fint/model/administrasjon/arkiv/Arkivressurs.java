@@ -23,6 +23,6 @@ public class Arkivressurs implements FintMainObject {
             ROLLE
     }
 
-    @NotNull
+    private @Valid Identifikator kildesystemId;
     private @Valid Identifikator systemId;
 }
