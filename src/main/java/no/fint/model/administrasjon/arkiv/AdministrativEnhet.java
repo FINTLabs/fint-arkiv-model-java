@@ -10,6 +10,7 @@ import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import no.fint.model.FintMainObject;
+import no.fint.model.felles.kompleksedatatyper.Periode;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Data
@@ -21,6 +22,9 @@ public class AdministrativEnhet implements FintMainObject {
             ARKIVRESSURS
     }
 
+    private @Valid Periode gyldighetsperiode;
+    @NotBlank
+    private String navn;
     @NotNull
     private @Valid Identifikator systemId;
 }

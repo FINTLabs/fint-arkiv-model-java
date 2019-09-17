@@ -19,6 +19,7 @@ import javax.validation.constraints.*;
 import no.fint.model.FintMainObject;
 import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
+import no.fint.model.felles.kompleksedatatyper.Periode;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Data
@@ -27,6 +28,9 @@ import no.fint.model.felles.kompleksedatatyper.Identifikator;
 @ToString
 public class AdministrativEnhetResource implements FintMainObject, FintLinks {
     // Attributes
+    private @Valid Periode gyldighetsperiode;
+    @NotBlank
+    private String navn;
     @NotNull
     private @Valid Identifikator systemId;
 
