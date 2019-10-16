@@ -19,8 +19,8 @@ import no.fint.model.felles.kompleksedatatyper.Identifikator;
 public class Arkivressurs implements FintMainObject {
     public enum Relasjonsnavn {
             PERSONALRESSURS,
-            ADMINISTRATIVENHET,
-            ROLLE
+            AUTORISASJON,
+            TILGANG
     }
 
     private @Valid Identifikator kildesystemId;

@@ -24,6 +24,7 @@ import no.fint.model.administrasjon.arkiv.Skjerming;
 public abstract class Registrering implements FintAbstractObject {
     public enum Relasjonsnavn {
             ADMINISTRATIVENHET,
+            ARKIVDEL,
             SAKSBEHANDLER,
             ARKIVERTAV,
             OPPRETTETAV

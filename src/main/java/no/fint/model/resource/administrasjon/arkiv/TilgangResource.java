@@ -29,23 +29,39 @@ public class TilgangResource implements FintMainObject, FintLinks {
     // Attributes
     @NotNull
     private @Valid Identifikator systemId;
+    @NotBlank
+    private String tittel;
 
     // Relations
     @Getter
     private final Map<String, List<Link>> links = createLinks();
         
     @JsonIgnore
+    public List<Link> getAdministrativEnhet() {
+        return getLinks().getOrDefault("administrativEnhet", Collections.emptyList()); 
+    }
+    public void addAdministrativEnhet(Link link) {
+        addLink("administrativEnhet", link);
+    }
+    @JsonIgnore
+    public List<Link> getArkivdel() {
+        return getLinks().getOrDefault("arkivdel", Collections.emptyList()); 
+    }
+    public void addArkivdel(Link link) {
+        addLink("arkivdel", link);
+    }
+    @JsonIgnore
+    public List<Link> getArkivressurs() {
+        return getLinks().getOrDefault("arkivressurs", Collections.emptyList()); 
+    }
+    public void addArkivressurs(Link link) {
+        addLink("arkivressurs", link);
+    }
+    @JsonIgnore
     public List<Link> getRolle() {
         return getLinks().getOrDefault("rolle", Collections.emptyList()); 
     }
     public void addRolle(Link link) {
         addLink("rolle", link);
-    }
-    @JsonIgnore
-    public List<Link> getTilgangsrestriksjon() {
-        return getLinks().getOrDefault("tilgangsrestriksjon", Collections.emptyList()); 
-    }
-    public void addTilgangsrestriksjon(Link link) {
-        addLink("tilgangsrestriksjon", link);
     }
 }

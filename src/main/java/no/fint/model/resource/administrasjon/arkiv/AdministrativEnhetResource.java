@@ -39,10 +39,10 @@ public class AdministrativEnhetResource implements FintMainObject, FintLinks {
     private final Map<String, List<Link>> links = createLinks();
         
     @JsonIgnore
-    public List<Link> getArkivressurs() {
-        return getLinks().getOrDefault("arkivressurs", Collections.emptyList()); 
+    public List<Link> getOrganisasjonselement() {
+        return getLinks().getOrDefault("organisasjonselement", Collections.emptyList()); 
     }
-    public void addArkivressurs(Link link) {
-        addLink("arkivressurs", link);
+    public void addOrganisasjonselement(Link link) {
+        addLink("organisasjonselement", link);
     }
 }

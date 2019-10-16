@@ -19,7 +19,7 @@ import no.fint.model.felles.kompleksedatatyper.Identifikator;
 @ToString
 public class AdministrativEnhet implements FintMainObject {
     public enum Relasjonsnavn {
-            ARKIVRESSURS
+            ORGANISASJONSELEMENT
     }
 
     private @Valid Periode gyldighetsperiode;

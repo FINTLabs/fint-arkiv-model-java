@@ -25,34 +25,29 @@ import no.fint.model.felles.kompleksedatatyper.Identifikator;
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class ArkivressursResource implements FintMainObject, FintLinks {
+public class ArkivdelResource implements FintMainObject, FintLinks {
     // Attributes
-    private @Valid Identifikator kildesystemId;
+    @NotNull
     private @Valid Identifikator systemId;
+    @NotBlank
+    private String tittel;
 
     // Relations
     @Getter
     private final Map<String, List<Link>> links = createLinks();
         
     @JsonIgnore
-    public List<Link> getPersonalressurs() {
-        return getLinks().getOrDefault("personalressurs", Collections.emptyList()); 
+    public List<Link> getRegistrering() {
+        return getLinks().getOrDefault("registrering", Collections.emptyList()); 
     }
-    public void addPersonalressurs(Link link) {
-        addLink("personalressurs", link);
-    }
-    @JsonIgnore
-    public List<Link> getAutorisasjon() {
-        return getLinks().getOrDefault("autorisasjon", Collections.emptyList()); 
-    }
-    public void addAutorisasjon(Link link) {
-        addLink("autorisasjon", link);
+    public void addRegistrering(Link link) {
+        addLink("registrering", link);
     }
     @JsonIgnore
-    public List<Link> getTilgang() {
-        return getLinks().getOrDefault("tilgang", Collections.emptyList()); 
+    public List<Link> getMappe() {
+        return getLinks().getOrDefault("mappe", Collections.emptyList()); 
     }
-    public void addTilgang(Link link) {
-        addLink("tilgang", link);
+    public void addMappe(Link link) {
+        addLink("mappe", link);
     }
 }

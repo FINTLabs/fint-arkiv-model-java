@@ -22,6 +22,7 @@ import no.fint.model.administrasjon.arkiv.Skjerming;
 @ToString
 public abstract class Mappe implements FintAbstractObject {
     public enum Relasjonsnavn {
+            ARKIVDEL,
             AVSLUTTETAV,
             OPPRETTETAV
     }

@@ -82,6 +82,13 @@ public abstract class RegistreringResource implements FintAbstractObject, FintLi
         addLink("administrativEnhet", link);
     }
     @JsonIgnore
+    public List<Link> getArkivdel() {
+        return getLinks().getOrDefault("arkivdel", Collections.emptyList()); 
+    }
+    public void addArkivdel(Link link) {
+        addLink("arkivdel", link);
+    }
+    @JsonIgnore
     public List<Link> getSaksbehandler() {
         return getLinks().getOrDefault("saksbehandler", Collections.emptyList()); 
     }

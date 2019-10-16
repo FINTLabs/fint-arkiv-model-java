@@ -10,11 +10,20 @@ import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import no.fint.model.FintMainObject;
-import no.fint.model.felles.basisklasser.Begrep;
+import no.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Data
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper=true)
-@ToString(callSuper=true)
-public class Rolle extends Begrep implements FintMainObject {
+@EqualsAndHashCode
+@ToString
+public class Arkivdel implements FintMainObject {
+    public enum Relasjonsnavn {
+            REGISTRERING,
+            MAPPE
+    }
+
+    @NotNull
+    private @Valid Identifikator systemId;
+    @NotBlank
+    private String tittel;
 }

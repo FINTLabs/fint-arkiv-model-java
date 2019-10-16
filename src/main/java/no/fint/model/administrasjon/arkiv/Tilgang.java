@@ -18,10 +18,14 @@ import no.fint.model.felles.kompleksedatatyper.Identifikator;
 @ToString
 public class Tilgang implements FintMainObject {
     public enum Relasjonsnavn {
-            ROLLE,
-            TILGANGSRESTRIKSJON
+            ADMINISTRATIVENHET,
+            ARKIVDEL,
+            ARKIVRESSURS,
+            ROLLE
     }
 
     @NotNull
     private @Valid Identifikator systemId;
+    @NotBlank
+    private String tittel;
 }
