@@ -27,7 +27,8 @@ public abstract class Registrering implements FintAbstractObject {
             ARKIVDEL,
             SAKSBEHANDLER,
             ARKIVERTAV,
-            OPPRETTETAV
+            OPPRETTETAV,
+            KLASSE
     }
 
     private Date arkivertDato;

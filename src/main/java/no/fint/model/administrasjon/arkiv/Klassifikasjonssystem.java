@@ -10,22 +10,29 @@ import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import no.fint.model.FintMainObject;
+import java.util.Date;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
-import no.fint.model.felles.kompleksedatatyper.Personnavn;
-import no.fint.model.administrasjon.arkiv.Saksmappe;
 
 @Data
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper=true)
-@ToString(callSuper=true)
-public class Personalmappe extends Saksmappe implements FintMainObject {
+@EqualsAndHashCode
+@ToString
+public class Klassifikasjonssystem implements FintMainObject {
     public enum Relasjonsnavn {
-            ORGANISASJONSELEMENT,
-            PERSONALRESSURS
+            KLASSE,
+            ARKIVDEL
     }
 
+    private String avsluttetAv;
+    private Date avsluttetDato;
+    private String beskrivelse;
+    private String klassifikasjonstype;
+    @NotBlank
+    private String opprettetAv;
     @NotNull
-    private @Valid Identifikator fodselsnummer;
+    private Date opprettetDato;
     @NotNull
-    private @Valid Personnavn navn;
+    private @Valid Identifikator systemId;
+    @NotBlank
+    private String tittel;
 }

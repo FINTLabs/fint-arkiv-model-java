@@ -19,14 +19,25 @@ import javax.validation.constraints.*;
 import no.fint.model.FintMainObject;
 import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
+import java.util.Date;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class ArkivdelResource implements FintMainObject, FintLinks {
+public class KlasseResource implements FintMainObject, FintLinks {
     // Attributes
+    private String avsluttetAv;
+    private Date avsluttetDato;
+    private String beskrivelse;
+    @NotNull
+    private @Valid Identifikator klasseId;
+    private List<String> noekkelord;
+    @NotBlank
+    private String opprettetAv;
+    @NotNull
+    private Date opprettetDato;
     @NotNull
     private @Valid Identifikator systemId;
     @NotBlank
@@ -37,24 +48,17 @@ public class ArkivdelResource implements FintMainObject, FintLinks {
     private final Map<String, List<Link>> links = createLinks();
         
     @JsonIgnore
+    public List<Link> getUnderklasse() {
+        return getLinks().getOrDefault("underklasse", Collections.emptyList()); 
+    }
+    public void addUnderklasse(Link link) {
+        addLink("underklasse", link);
+    }
+    @JsonIgnore
     public List<Link> getKlassifikasjonssystem() {
         return getLinks().getOrDefault("klassifikasjonssystem", Collections.emptyList()); 
     }
     public void addKlassifikasjonssystem(Link link) {
         addLink("klassifikasjonssystem", link);
-    }
-    @JsonIgnore
-    public List<Link> getRegistrering() {
-        return getLinks().getOrDefault("registrering", Collections.emptyList()); 
-    }
-    public void addRegistrering(Link link) {
-        addLink("registrering", link);
-    }
-    @JsonIgnore
-    public List<Link> getMappe() {
-        return getLinks().getOrDefault("mappe", Collections.emptyList()); 
-    }
-    public void addMappe(Link link) {
-        addLink("mappe", link);
     }
 }

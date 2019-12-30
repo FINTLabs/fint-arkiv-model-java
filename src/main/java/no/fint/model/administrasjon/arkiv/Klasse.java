@@ -9,35 +9,31 @@ import lombok.ToString;
 import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
-import no.fint.model.FintAbstractObject;
+import no.fint.model.FintMainObject;
 import java.util.Date;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
-import no.fint.model.administrasjon.arkiv.Merknad;
-import no.fint.model.administrasjon.arkiv.Partsinformasjon;
-import no.fint.model.administrasjon.arkiv.Skjerming;
 
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public abstract class Mappe implements FintAbstractObject {
+public class Klasse implements FintMainObject {
     public enum Relasjonsnavn {
-            ARKIVDEL,
-            AVSLUTTETAV,
-            OPPRETTETAV,
-            KLASSE
+            UNDERKLASSE,
+            KLASSIFIKASJONSSYSTEM
     }
 
+    private String avsluttetAv;
     private Date avsluttetDato;
     private String beskrivelse;
-    private @Valid Identifikator mappeId;
-    private List<@Valid Merknad> merknad;
+    @NotNull
+    private @Valid Identifikator klasseId;
     private List<String> noekkelord;
-    private String offentligTittel;
+    @NotBlank
+    private String opprettetAv;
+    @NotNull
     private Date opprettetDato;
-    @NotEmpty
-    private List<@Valid Partsinformasjon> part;
-    private @Valid Skjerming skjerming;
+    @NotNull
     private @Valid Identifikator systemId;
     @NotBlank
     private String tittel;

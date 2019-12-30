@@ -19,14 +19,23 @@ import javax.validation.constraints.*;
 import no.fint.model.FintMainObject;
 import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
+import java.util.Date;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class ArkivdelResource implements FintMainObject, FintLinks {
+public class KlassifikasjonssystemResource implements FintMainObject, FintLinks {
     // Attributes
+    private String avsluttetAv;
+    private Date avsluttetDato;
+    private String beskrivelse;
+    private String klassifikasjonstype;
+    @NotBlank
+    private String opprettetAv;
+    @NotNull
+    private Date opprettetDato;
     @NotNull
     private @Valid Identifikator systemId;
     @NotBlank
@@ -37,24 +46,17 @@ public class ArkivdelResource implements FintMainObject, FintLinks {
     private final Map<String, List<Link>> links = createLinks();
         
     @JsonIgnore
-    public List<Link> getKlassifikasjonssystem() {
-        return getLinks().getOrDefault("klassifikasjonssystem", Collections.emptyList()); 
+    public List<Link> getKlasse() {
+        return getLinks().getOrDefault("klasse", Collections.emptyList()); 
     }
-    public void addKlassifikasjonssystem(Link link) {
-        addLink("klassifikasjonssystem", link);
-    }
-    @JsonIgnore
-    public List<Link> getRegistrering() {
-        return getLinks().getOrDefault("registrering", Collections.emptyList()); 
-    }
-    public void addRegistrering(Link link) {
-        addLink("registrering", link);
+    public void addKlasse(Link link) {
+        addLink("klasse", link);
     }
     @JsonIgnore
-    public List<Link> getMappe() {
-        return getLinks().getOrDefault("mappe", Collections.emptyList()); 
+    public List<Link> getArkivdel() {
+        return getLinks().getOrDefault("arkivdel", Collections.emptyList()); 
     }
-    public void addMappe(Link link) {
-        addLink("mappe", link);
+    public void addArkivdel(Link link) {
+        addLink("arkivdel", link);
     }
 }

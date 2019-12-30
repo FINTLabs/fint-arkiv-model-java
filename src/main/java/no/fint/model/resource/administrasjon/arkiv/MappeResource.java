@@ -85,4 +85,11 @@ public abstract class MappeResource implements FintAbstractObject, FintLinks {
     public void addOpprettetAv(Link link) {
         addLink("opprettetAv", link);
     }
+    @JsonIgnore
+    public List<Link> getKlasse() {
+        return getLinks().getOrDefault("klasse", Collections.emptyList()); 
+    }
+    public void addKlasse(Link link) {
+        addLink("klasse", link);
+    }
 }

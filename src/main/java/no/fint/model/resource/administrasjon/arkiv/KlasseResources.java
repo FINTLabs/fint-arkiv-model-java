@@ -12,16 +12,16 @@ import lombok.NoArgsConstructor;
 import no.fint.model.resource.AbstractCollectionResources;
 
 @NoArgsConstructor
-public class PersonalmappeResources extends AbstractCollectionResources<PersonalmappeResource> {
+public class KlasseResources extends AbstractCollectionResources<KlasseResource> {
 
-    public PersonalmappeResources(Collection<PersonalmappeResource> input) {
+    public KlasseResources(Collection<KlasseResource> input) {
         super(input);
     }
 
     @JsonIgnore
     @Deprecated
     @Override
-    public TypeReference<List<PersonalmappeResource>> getTypeReference() {
-        return new TypeReference<List<PersonalmappeResource>>() {};
+    public TypeReference<List<KlasseResource>> getTypeReference() {
+        return new TypeReference<List<KlasseResource>>() {};
     }
 }

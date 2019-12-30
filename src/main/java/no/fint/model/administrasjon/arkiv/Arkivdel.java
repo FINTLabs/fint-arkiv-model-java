@@ -18,6 +18,7 @@ import no.fint.model.felles.kompleksedatatyper.Identifikator;
 @ToString
 public class Arkivdel implements FintMainObject {
     public enum Relasjonsnavn {
+            KLASSIFIKASJONSSYSTEM,
             REGISTRERING,
             MAPPE
     }
