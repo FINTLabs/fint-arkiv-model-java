@@ -29,6 +29,7 @@ public class DokumentfilResource implements FintMainObject, FintLinks {
     // Attributes
     @NotBlank
     private String data;
+    private String filnavn;
     @NotBlank
     private String format;
     @NotNull

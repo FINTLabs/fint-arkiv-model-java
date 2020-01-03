@@ -19,6 +19,7 @@ import no.fint.model.felles.kompleksedatatyper.Identifikator;
 public class Dokumentfil implements FintMainObject {
     @NotBlank
     private String data;
+    private String filnavn;
     @NotBlank
     private String format;
     @NotNull
