@@ -23,8 +23,8 @@ public class Dokumentbeskrivelse implements FintComplexDatatypeObject {
     public enum Relasjonsnavn {
             TILKNYTTETAV,
             OPPRETTETAV,
-            DOKUMENTSTATUS,
             DOKUMENTTYPE,
+            DOKUMENTSTATUS,
             TILKNYTTETREGISTRERINGSOM
     }
 

@@ -5,3 +5,8 @@ classes
 out
 .DS_Store
 *.iml
+/.vscode/
+/.classpath
+/.project
+/.settings/
+/bin/

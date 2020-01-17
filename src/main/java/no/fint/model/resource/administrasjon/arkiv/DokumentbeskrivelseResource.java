@@ -76,18 +76,18 @@ public class DokumentbeskrivelseResource implements FintComplexDatatypeObject, F
         addLink("opprettetAv", link);
     }
     @JsonIgnore
-    public List<Link> getDokumentstatus() {
-        return getLinks().getOrDefault("dokumentstatus", Collections.emptyList()); 
-    }
-    public void addDokumentstatus(Link link) {
-        addLink("dokumentstatus", link);
-    }
-    @JsonIgnore
     public List<Link> getDokumentType() {
         return getLinks().getOrDefault("dokumentType", Collections.emptyList()); 
     }
     public void addDokumentType(Link link) {
         addLink("dokumentType", link);
+    }
+    @JsonIgnore
+    public List<Link> getDokumentstatus() {
+        return getLinks().getOrDefault("dokumentstatus", Collections.emptyList()); 
+    }
+    public void addDokumentstatus(Link link) {
+        addLink("dokumentstatus", link);
     }
     @JsonIgnore
     public List<Link> getTilknyttetRegistreringSom() {
