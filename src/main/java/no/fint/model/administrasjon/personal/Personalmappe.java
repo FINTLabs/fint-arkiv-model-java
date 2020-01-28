@@ -10,6 +10,7 @@ import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import no.fint.model.FintMainObject;
+import no.fint.model.felles.kompleksedatatyper.Personnavn;
 import no.fint.model.administrasjon.arkiv.Saksmappe;
 
 @Data
@@ -24,4 +25,6 @@ public class Personalmappe extends Saksmappe implements FintMainObject {
             PERSONALRESSURS
     }
 
+    @NotNull
+    private @Valid Personnavn navn;
 }

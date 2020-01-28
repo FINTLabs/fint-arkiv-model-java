@@ -19,6 +19,7 @@ import javax.validation.constraints.*;
 import no.fint.model.FintMainObject;
 import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
+import no.fint.model.felles.kompleksedatatyper.Personnavn;
 import no.fint.model.resource.administrasjon.arkiv.SaksmappeResource;
 
 @Data
@@ -26,6 +27,9 @@ import no.fint.model.resource.administrasjon.arkiv.SaksmappeResource;
 @EqualsAndHashCode(callSuper=true)
 @ToString(callSuper=true)
 public class PersonalmappeResource extends SaksmappeResource implements FintMainObject, FintLinks {
+    // Attributes
+    @NotNull
+    private @Valid Personnavn navn;
 
     // Relations
     @Getter
