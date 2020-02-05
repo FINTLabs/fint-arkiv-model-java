@@ -35,7 +35,6 @@ public abstract class Registrering implements FintAbstractObject {
     private String beskrivelse;
     private List<@Valid Dokumentbeskrivelse> dokumentbeskrivelse;
     private List<String> forfatter;
-    @NotEmpty
     private List<@Valid Korrespondanse> korrespondansepart;
     private List<@Valid Merknad> merknad;
     private List<String> nokkelord;

@@ -35,7 +35,6 @@ public abstract class Mappe implements FintAbstractObject {
     private List<String> noekkelord;
     private String offentligTittel;
     private Date opprettetDato;
-    @NotEmpty
     private List<@Valid Partsinformasjon> part;
     private @Valid Skjerming skjerming;
     private @Valid Identifikator systemId;

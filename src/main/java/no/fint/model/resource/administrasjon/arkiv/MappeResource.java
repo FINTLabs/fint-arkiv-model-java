@@ -53,7 +53,6 @@ public abstract class MappeResource implements FintAbstractObject, FintLinks {
     private List<String> noekkelord;
     private String offentligTittel;
     private Date opprettetDato;
-    @NotEmpty
     private List<@Valid PartsinformasjonResource> part;
     private @Valid SkjermingResource skjerming;
     private @Valid Identifikator systemId;

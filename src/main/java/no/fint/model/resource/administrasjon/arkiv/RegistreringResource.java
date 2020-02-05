@@ -57,7 +57,6 @@ public abstract class RegistreringResource implements FintAbstractObject, FintLi
     private String beskrivelse;
     private List<@Valid DokumentbeskrivelseResource> dokumentbeskrivelse;
     private List<String> forfatter;
-    @NotEmpty
     private List<@Valid KorrespondanseResource> korrespondansepart;
     private List<@Valid MerknadResource> merknad;
     private List<String> nokkelord;
