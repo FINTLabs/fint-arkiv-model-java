@@ -24,7 +24,7 @@ class ModelDeserializationSpec extends Specification {
         result.sakssekvensnummer == '00114'
         result.saksstatus.any { it.href.contains('/saksstatus/')}
         result.journalpost.any { it.journalstatus.any { it.href.endsWith('/journalstatus/systemid/3') } }
-        result.journalpost.any { it.korrespondansepart.any { it.korrespondansepart.any { it.href.endsWith('/225960') } } }
+        result.journalpost.any { it.korrespondansepart.any { it.fodselsnummer.contains('12345678901') } }
     }
 
     /*

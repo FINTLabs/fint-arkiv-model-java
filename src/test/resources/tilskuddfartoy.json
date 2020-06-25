@@ -54,12 +54,8 @@
       ],
       "korrespondansepart": [
         {
+          "fodselsnummer": "12345678901",
           "_links": {
-            "korrespondansepart": [
-              {
-                "href": "https://beta.felleskomponent.no/administrasjon/arkiv/korrespondansepart/systemid/225960"
-              }
-            ],
             "korrespondanseparttype": [
               {
                 "href": "https://beta.felleskomponent.no/administrasjon/arkiv/korrespondanseparttype/systemid/5"
