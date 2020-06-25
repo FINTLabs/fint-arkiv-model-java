@@ -40,9 +40,7 @@ public class TilskuddFredaHusPrivatEieResource extends SaksmappeResource impleme
     }
     @NotBlank
     private String kulturminneId;
-    @NotNull
     private @Valid MatrikkelnummerResource matrikkelnummer;
-    @NotNull
     private @Valid Identifikator soknadsnummer;
 
     // Relations

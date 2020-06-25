@@ -12,7 +12,7 @@ import javax.validation.constraints.*;
 import no.fint.model.FintAbstractObject;
 import java.util.Date;
 import no.fint.model.administrasjon.arkiv.Dokumentbeskrivelse;
-import no.fint.model.administrasjon.arkiv.Korrespondanse;
+import no.fint.model.administrasjon.arkiv.Korrespondansepart;
 import no.fint.model.administrasjon.arkiv.Merknad;
 import no.fint.model.administrasjon.arkiv.Partsinformasjon;
 import no.fint.model.administrasjon.arkiv.Skjerming;
@@ -35,7 +35,7 @@ public abstract class Registrering implements FintAbstractObject {
     private String beskrivelse;
     private List<@Valid Dokumentbeskrivelse> dokumentbeskrivelse;
     private List<String> forfatter;
-    private List<@Valid Korrespondanse> korrespondansepart;
+    private List<@Valid Korrespondansepart> korrespondansepart;
     private List<@Valid Merknad> merknad;
     private List<String> nokkelord;
     private String offentligTittel;

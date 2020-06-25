@@ -21,8 +21,6 @@ import no.fint.model.administrasjon.arkiv.Saksmappe;
 public class TilskuddFredaHusPrivatEie extends Saksmappe implements FintMainObject {
     @NotBlank
     private String kulturminneId;
-    @NotNull
     private @Valid Matrikkelnummer matrikkelnummer;
-    @NotNull
     private @Valid Identifikator soknadsnummer;
 }

@@ -16,18 +16,17 @@ import java.util.Map;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
-import no.fint.model.FintMainObject;
+import no.fint.model.FintComplexDatatypeObject;
 import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
 import no.fint.model.resource.felles.kompleksedatatyper.AdresseResource;
-import no.fint.model.felles.kompleksedatatyper.Identifikator;
 import no.fint.model.felles.kompleksedatatyper.Kontaktinformasjon;
 
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class KorrespondansepartResource implements FintMainObject, FintLinks {
+public class KorrespondansepartResource implements FintComplexDatatypeObject, FintLinks {
     // Attributes
     @JsonIgnore
     @Override
@@ -39,14 +38,21 @@ public class KorrespondansepartResource implements FintMainObject, FintLinks {
         return result;
     }
     private @Valid AdresseResource adresse;
-    private @Valid Identifikator fodselsnummer;
+    private String fodselsnummer;
     private @Valid Kontaktinformasjon kontaktinformasjon;
     private String kontaktperson;
     private String korrespondansepartNavn;
-    private @Valid Identifikator organisasjonsnummer;
-    private @Valid Identifikator systemId;
+    private String organisasjonsnummer;
 
     // Relations
     @Getter
     private final Map<String, List<Link>> links = createLinks();
+        
+    @JsonIgnore
+    public List<Link> getKorrespondanseparttype() {
+        return getLinks().getOrDefault("korrespondanseparttype", Collections.emptyList()); 
+    }
+    public void addKorrespondanseparttype(Link link) {
+        addLink("korrespondanseparttype", link);
+    }
 }
