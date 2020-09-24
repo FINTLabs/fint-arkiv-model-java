@@ -10,16 +10,19 @@ import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import no.fint.model.FintMainObject;
-import no.fint.model.felles.basisklasser.Begrep;
+import no.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Data
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper=true)
-@ToString(callSuper=true)
-public class Autorisasjon extends Begrep implements FintMainObject {
+@EqualsAndHashCode
+@ToString
+public class Autorisasjon implements FintMainObject {
     public enum Relasjonsnavn {
+            ADMINISTRATIVENHET,
             TILGANGSRESTRIKSJON,
             ARKIVRESSURS
     }
 
+    @NotNull
+    private @Valid Identifikator systemId;
 }

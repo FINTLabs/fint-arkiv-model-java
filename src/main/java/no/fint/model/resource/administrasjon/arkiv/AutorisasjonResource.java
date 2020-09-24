@@ -19,18 +19,28 @@ import javax.validation.constraints.*;
 import no.fint.model.FintMainObject;
 import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
-import no.fint.model.felles.basisklasser.Begrep;
+import no.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Data
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper=true)
-@ToString(callSuper=true)
-public class AutorisasjonResource extends Begrep implements FintMainObject, FintLinks {
+@EqualsAndHashCode
+@ToString
+public class AutorisasjonResource implements FintMainObject, FintLinks {
+    // Attributes
+    @NotNull
+    private @Valid Identifikator systemId;
 
     // Relations
     @Getter
     private final Map<String, List<Link>> links = createLinks();
         
+    @JsonIgnore
+    public List<Link> getAdministrativenhet() {
+        return getLinks().getOrDefault("administrativenhet", Collections.emptyList()); 
+    }
+    public void addAdministrativenhet(Link link) {
+        addLink("administrativenhet", link);
+    }
     @JsonIgnore
     public List<Link> getTilgangsrestriksjon() {
         return getLinks().getOrDefault("tilgangsrestriksjon", Collections.emptyList()); 

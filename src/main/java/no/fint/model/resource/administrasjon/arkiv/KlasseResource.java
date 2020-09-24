@@ -16,30 +16,30 @@ import java.util.Map;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
-import no.fint.model.FintMainObject;
+import no.fint.model.FintComplexDatatypeObject;
 import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
-import java.util.Date;
-import no.fint.model.felles.kompleksedatatyper.Identifikator;
+import no.fint.model.resource.administrasjon.arkiv.SkjermingResource;
 
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class KlasseResource implements FintMainObject, FintLinks {
+public class KlasseResource implements FintComplexDatatypeObject, FintLinks {
     // Attributes
-    private String avsluttetAv;
-    private Date avsluttetDato;
-    private String beskrivelse;
-    @NotNull
-    private @Valid Identifikator klasseId;
-    private List<String> noekkelord;
+    @JsonIgnore
+    @Override
+    public List<FintLinks> getNestedResources() {
+        List<FintLinks> result = FintLinks.super.getNestedResources();
+        if (skjerming != null) {
+            result.add(skjerming);
+        }
+        return result;
+    }
     @NotBlank
-    private String opprettetAv;
-    @NotNull
-    private Date opprettetDato;
-    @NotNull
-    private @Valid Identifikator systemId;
+    private String klasseId;
+    private Integer rekkefolge;
+    private @Valid SkjermingResource skjerming;
     @NotBlank
     private String tittel;
 
@@ -47,13 +47,6 @@ public class KlasseResource implements FintMainObject, FintLinks {
     @Getter
     private final Map<String, List<Link>> links = createLinks();
         
-    @JsonIgnore
-    public List<Link> getUnderklasse() {
-        return getLinks().getOrDefault("underklasse", Collections.emptyList()); 
-    }
-    public void addUnderklasse(Link link) {
-        addLink("underklasse", link);
-    }
     @JsonIgnore
     public List<Link> getKlassifikasjonssystem() {
         return getLinks().getOrDefault("klassifikasjonssystem", Collections.emptyList()); 

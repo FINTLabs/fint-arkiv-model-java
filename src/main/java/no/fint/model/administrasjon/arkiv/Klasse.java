@@ -9,32 +9,22 @@ import lombok.ToString;
 import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
-import no.fint.model.FintMainObject;
-import java.util.Date;
-import no.fint.model.felles.kompleksedatatyper.Identifikator;
+import no.fint.model.FintComplexDatatypeObject;
+import no.fint.model.administrasjon.arkiv.Skjerming;
 
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class Klasse implements FintMainObject {
+public class Klasse implements FintComplexDatatypeObject {
     public enum Relasjonsnavn {
-            UNDERKLASSE,
             KLASSIFIKASJONSSYSTEM
     }
 
-    private String avsluttetAv;
-    private Date avsluttetDato;
-    private String beskrivelse;
-    @NotNull
-    private @Valid Identifikator klasseId;
-    private List<String> noekkelord;
     @NotBlank
-    private String opprettetAv;
-    @NotNull
-    private Date opprettetDato;
-    @NotNull
-    private @Valid Identifikator systemId;
+    private String klasseId;
+    private Integer rekkefolge;
+    private @Valid Skjerming skjerming;
     @NotBlank
     private String tittel;
 }

@@ -21,7 +21,7 @@ import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
 import no.fint.model.resource.administrasjon.arkiv.DokumentobjektResource;
 import java.util.Date;
-import no.fint.model.resource.administrasjon.arkiv.PartsinformasjonResource;
+import no.fint.model.resource.administrasjon.arkiv.PartResource;
 import no.fint.model.resource.administrasjon.arkiv.SkjermingResource;
 
 @Data
@@ -50,7 +50,7 @@ public class DokumentbeskrivelseResource implements FintComplexDatatypeObject, F
     private List<@Valid DokumentobjektResource> dokumentobjekt;
     private List<String> forfatter;
     private Date opprettetDato;
-    private List<@Valid PartsinformasjonResource> part;
+    private List<@Valid PartResource> part;
     private List<String> referanseArkivdel;
     private @Valid SkjermingResource skjerming;
     private Date tilknyttetDato;

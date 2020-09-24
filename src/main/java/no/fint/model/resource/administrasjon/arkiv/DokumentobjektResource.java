@@ -31,7 +31,7 @@ public class DokumentobjektResource implements FintComplexDatatypeObject, FintLi
     private String formatDetaljer;
     private String sjekksum;
     private String sjekksumAlgoritme;
-    private Long versjonsummer;
+    private Long versjonsnummer;
 
     // Relations
     @Getter

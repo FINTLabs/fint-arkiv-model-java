@@ -12,7 +12,7 @@ import javax.validation.constraints.*;
 import no.fint.model.FintComplexDatatypeObject;
 import no.fint.model.administrasjon.arkiv.Dokumentobjekt;
 import java.util.Date;
-import no.fint.model.administrasjon.arkiv.Partsinformasjon;
+import no.fint.model.administrasjon.arkiv.Part;
 import no.fint.model.administrasjon.arkiv.Skjerming;
 
 @Data
@@ -33,7 +33,7 @@ public class Dokumentbeskrivelse implements FintComplexDatatypeObject {
     private List<@Valid Dokumentobjekt> dokumentobjekt;
     private List<String> forfatter;
     private Date opprettetDato;
-    private List<@Valid Partsinformasjon> part;
+    private List<@Valid Part> part;
     private List<String> referanseArkivdel;
     private @Valid Skjerming skjerming;
     private Date tilknyttetDato;

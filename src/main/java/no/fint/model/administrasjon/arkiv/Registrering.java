@@ -12,9 +12,10 @@ import javax.validation.constraints.*;
 import no.fint.model.FintAbstractObject;
 import java.util.Date;
 import no.fint.model.administrasjon.arkiv.Dokumentbeskrivelse;
+import no.fint.model.administrasjon.arkiv.Klasse;
 import no.fint.model.administrasjon.arkiv.Korrespondansepart;
 import no.fint.model.administrasjon.arkiv.Merknad;
-import no.fint.model.administrasjon.arkiv.Partsinformasjon;
+import no.fint.model.administrasjon.arkiv.Part;
 import no.fint.model.administrasjon.arkiv.Skjerming;
 
 @Data
@@ -27,20 +28,21 @@ public abstract class Registrering implements FintAbstractObject {
             ARKIVDEL,
             SAKSBEHANDLER,
             ARKIVERTAV,
-            OPPRETTETAV,
-            KLASSE
+            OPPRETTETAV
     }
 
     private Date arkivertDato;
     private String beskrivelse;
     private List<@Valid Dokumentbeskrivelse> dokumentbeskrivelse;
     private List<String> forfatter;
+    @NotNull
+    private @Valid Klasse klasse;
     private List<@Valid Korrespondansepart> korrespondansepart;
     private List<@Valid Merknad> merknad;
     private List<String> nokkelord;
     private String offentligTittel;
     private Date opprettetDato;
-    private List<@Valid Partsinformasjon> part;
+    private List<@Valid Part> part;
     private List<String> referanseArkivDel;
     private String registreringsId;
     private @Valid Skjerming skjerming;

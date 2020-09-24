@@ -11,9 +11,10 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 import no.fint.model.FintAbstractObject;
 import java.util.Date;
+import no.fint.model.administrasjon.arkiv.Klasse;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
 import no.fint.model.administrasjon.arkiv.Merknad;
-import no.fint.model.administrasjon.arkiv.Partsinformasjon;
+import no.fint.model.administrasjon.arkiv.Part;
 import no.fint.model.administrasjon.arkiv.Skjerming;
 
 @Data
@@ -24,20 +25,19 @@ public abstract class Mappe implements FintAbstractObject {
     public enum Relasjonsnavn {
             ARKIVDEL,
             AVSLUTTETAV,
-            OPPRETTETAV,
-            KLASSE
+            OPPRETTETAV
     }
 
     private Date avsluttetDato;
     private String beskrivelse;
+    private @Valid Klasse klasse;
     private @Valid Identifikator mappeId;
     private List<@Valid Merknad> merknad;
     private List<String> noekkelord;
     private String offentligTittel;
     private Date opprettetDato;
-    private List<@Valid Partsinformasjon> part;
+    private List<@Valid Part> part;
     private @Valid Skjerming skjerming;
     private @Valid Identifikator systemId;
-    @NotBlank
     private String tittel;
 }

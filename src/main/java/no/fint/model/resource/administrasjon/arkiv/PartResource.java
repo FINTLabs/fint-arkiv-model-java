@@ -16,18 +16,17 @@ import java.util.Map;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
-import no.fint.model.FintMainObject;
+import no.fint.model.FintComplexDatatypeObject;
 import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
 import no.fint.model.resource.felles.kompleksedatatyper.AdresseResource;
 import no.fint.model.felles.kompleksedatatyper.Kontaktinformasjon;
-import no.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class PartResource implements FintMainObject, FintLinks {
+public class PartResource implements FintComplexDatatypeObject, FintLinks {
     // Attributes
     @JsonIgnore
     @Override
@@ -41,11 +40,18 @@ public class PartResource implements FintMainObject, FintLinks {
     private @Valid AdresseResource adresse;
     private @Valid Kontaktinformasjon kontaktinformasjon;
     private String kontaktperson;
-    private @Valid Identifikator partId;
     @NotBlank
     private String partNavn;
 
     // Relations
     @Getter
     private final Map<String, List<Link>> links = createLinks();
+        
+    @JsonIgnore
+    public List<Link> getPartRolle() {
+        return getLinks().getOrDefault("partRolle", Collections.emptyList()); 
+    }
+    public void addPartRolle(Link link) {
+        addLink("partRolle", link);
+    }
 }

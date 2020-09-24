@@ -20,9 +20,10 @@ import no.fint.model.FintAbstractObject;
 import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
 import java.util.Date;
+import no.fint.model.resource.administrasjon.arkiv.KlasseResource;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
 import no.fint.model.resource.administrasjon.arkiv.MerknadResource;
-import no.fint.model.resource.administrasjon.arkiv.PartsinformasjonResource;
+import no.fint.model.resource.administrasjon.arkiv.PartResource;
 import no.fint.model.resource.administrasjon.arkiv.SkjermingResource;
 
 @Data
@@ -35,6 +36,9 @@ public abstract class MappeResource implements FintAbstractObject, FintLinks {
     @Override
     public List<FintLinks> getNestedResources() {
         List<FintLinks> result = FintLinks.super.getNestedResources();
+        if (klasse != null) {
+            result.add(klasse);
+        }
         if (merknad != null) {
             result.addAll(merknad);
         }
@@ -48,15 +52,15 @@ public abstract class MappeResource implements FintAbstractObject, FintLinks {
     }
     private Date avsluttetDato;
     private String beskrivelse;
+    private @Valid KlasseResource klasse;
     private @Valid Identifikator mappeId;
     private List<@Valid MerknadResource> merknad;
     private List<String> noekkelord;
     private String offentligTittel;
     private Date opprettetDato;
-    private List<@Valid PartsinformasjonResource> part;
+    private List<@Valid PartResource> part;
     private @Valid SkjermingResource skjerming;
     private @Valid Identifikator systemId;
-    @NotBlank
     private String tittel;
 
     // Relations
@@ -83,12 +87,5 @@ public abstract class MappeResource implements FintAbstractObject, FintLinks {
     }
     public void addOpprettetAv(Link link) {
         addLink("opprettetAv", link);
-    }
-    @JsonIgnore
-    public List<Link> getKlasse() {
-        return getLinks().getOrDefault("klasse", Collections.emptyList()); 
-    }
-    public void addKlasse(Link link) {
-        addLink("klasse", link);
     }
 }

@@ -20,6 +20,7 @@ import no.fint.model.FintMainObject;
 import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
 import java.util.Date;
+import no.fint.model.resource.administrasjon.arkiv.KlasseResource;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Data
@@ -28,9 +29,20 @@ import no.fint.model.felles.kompleksedatatyper.Identifikator;
 @ToString
 public class KlassifikasjonssystemResource implements FintMainObject, FintLinks {
     // Attributes
+    @JsonIgnore
+    @Override
+    public List<FintLinks> getNestedResources() {
+        List<FintLinks> result = FintLinks.super.getNestedResources();
+        if (klasse != null) {
+            result.addAll(klasse);
+        }
+        return result;
+    }
     private String avsluttetAv;
     private Date avsluttetDato;
     private String beskrivelse;
+    @NotEmpty
+    private List<@Valid KlasseResource> klasse;
     private String klassifikasjonstype;
     @NotBlank
     private String opprettetAv;
@@ -45,13 +57,6 @@ public class KlassifikasjonssystemResource implements FintMainObject, FintLinks 
     @Getter
     private final Map<String, List<Link>> links = createLinks();
         
-    @JsonIgnore
-    public List<Link> getKlasse() {
-        return getLinks().getOrDefault("klasse", Collections.emptyList()); 
-    }
-    public void addKlasse(Link link) {
-        addLink("klasse", link);
-    }
     @JsonIgnore
     public List<Link> getArkivdel() {
         return getLinks().getOrDefault("arkivdel", Collections.emptyList()); 

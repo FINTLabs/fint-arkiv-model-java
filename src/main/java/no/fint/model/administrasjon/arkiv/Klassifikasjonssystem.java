@@ -11,6 +11,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 import no.fint.model.FintMainObject;
 import java.util.Date;
+import no.fint.model.administrasjon.arkiv.Klasse;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Data
@@ -19,13 +20,14 @@ import no.fint.model.felles.kompleksedatatyper.Identifikator;
 @ToString
 public class Klassifikasjonssystem implements FintMainObject {
     public enum Relasjonsnavn {
-            KLASSE,
             ARKIVDEL
     }
 
     private String avsluttetAv;
     private Date avsluttetDato;
     private String beskrivelse;
+    @NotEmpty
+    private List<@Valid Klasse> klasse;
     private String klassifikasjonstype;
     @NotBlank
     private String opprettetAv;

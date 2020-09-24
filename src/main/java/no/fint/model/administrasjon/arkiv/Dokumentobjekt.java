@@ -27,5 +27,5 @@ public class Dokumentobjekt implements FintComplexDatatypeObject {
     private String formatDetaljer;
     private String sjekksum;
     private String sjekksumAlgoritme;
-    private Long versjonsummer;
+    private Long versjonsnummer;
 }

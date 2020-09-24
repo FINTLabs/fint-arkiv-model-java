@@ -21,9 +21,10 @@ import no.fint.model.resource.FintLinks;
 import no.fint.model.resource.Link;
 import java.util.Date;
 import no.fint.model.resource.administrasjon.arkiv.DokumentbeskrivelseResource;
+import no.fint.model.resource.administrasjon.arkiv.KlasseResource;
 import no.fint.model.resource.administrasjon.arkiv.KorrespondansepartResource;
 import no.fint.model.resource.administrasjon.arkiv.MerknadResource;
-import no.fint.model.resource.administrasjon.arkiv.PartsinformasjonResource;
+import no.fint.model.resource.administrasjon.arkiv.PartResource;
 import no.fint.model.resource.administrasjon.arkiv.SkjermingResource;
 
 @Data
@@ -38,6 +39,9 @@ public abstract class RegistreringResource implements FintAbstractObject, FintLi
         List<FintLinks> result = FintLinks.super.getNestedResources();
         if (dokumentbeskrivelse != null) {
             result.addAll(dokumentbeskrivelse);
+        }
+        if (klasse != null) {
+            result.add(klasse);
         }
         if (korrespondansepart != null) {
             result.addAll(korrespondansepart);
@@ -57,12 +61,14 @@ public abstract class RegistreringResource implements FintAbstractObject, FintLi
     private String beskrivelse;
     private List<@Valid DokumentbeskrivelseResource> dokumentbeskrivelse;
     private List<String> forfatter;
+    @NotNull
+    private @Valid KlasseResource klasse;
     private List<@Valid KorrespondansepartResource> korrespondansepart;
     private List<@Valid MerknadResource> merknad;
     private List<String> nokkelord;
     private String offentligTittel;
     private Date opprettetDato;
-    private List<@Valid PartsinformasjonResource> part;
+    private List<@Valid PartResource> part;
     private List<String> referanseArkivDel;
     private String registreringsId;
     private @Valid SkjermingResource skjerming;
@@ -107,12 +113,5 @@ public abstract class RegistreringResource implements FintAbstractObject, FintLi
     }
     public void addOpprettetAv(Link link) {
         addLink("opprettetAv", link);
-    }
-    @JsonIgnore
-    public List<Link> getKlasse() {
-        return getLinks().getOrDefault("klasse", Collections.emptyList()); 
-    }
-    public void addKlasse(Link link) {
-        addLink("klasse", link);
     }
 }
